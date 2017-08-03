@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Puzzle Editor — Faeria</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container-fluid">
+	<img src="images/MainBoard1.png" class="img-responsive">
+	<ul class="nav nav-tabs">
+		<li class="active"><a data-toggle="tab" href="#general">Genreal</a></li>
+		<li><a data-toggle="tab" href="#hand">Hand</a></li>
+		<li><a data-toggle="tab" href="#lands">Lands</a></li>
+		<li><a data-toggle="tab" href="#creatures">Creatures</a></li>
+	</ul>
+	<div class="tab-content">
+		<div id="general" class="tab-pane fade in active">
+			<p>General</p>
+				<form class="form-inline">
+					<div class="row">
+						<div class="col-sm-8">
+							<div class="input-group">
+								<span class="input-group-addon">Your Name:</span>
+								<input class="form-control" type="text" id="form_name" placeholder="Your Name">
+							</div>
+						</div>
+						<div class="col-sm-2">
+							<div class="input-group">
+								<span class="input-group-addon"><img height=20px width=20px src="images/card_faeriacount.png" /></span>
+								<input class="form-control" id="form_faeria" placeholder="0">
+							</div>
+						</div>
+						<div class="col-sm-2">
+							<div class="input-group">
+								<span class="input-group-addon"><img height=20px width=20px src="images/cards_in_deck.png" /></span>
+								<input class="form-control" id="form_decksize" placeholder="27">
+							</div>
+						</div>
+					</div>
+				</form>
+				<form class="form-inline">
+					<div class="row">
+						<div class="col-sm-8">
+							<div class="input-group">
+								<span class="input-group-addon">Opponent Name:</span>
+								<input class="form-control" type="text" id="form_name2" placeholder="Opponent Name">
+							</div>
+						</div>
+						<div class="col-sm-2">
+							<div class="input-group">
+								<span class="input-group-addon"><img height=20px width=20px src="images/card_faeriacount.png" /></span>
+								<input class="form-control" id="form_faeria2" placeholder="0">
+							</div>
+						</div>
+						<div class="col-sm-2">
+							<div class="input-group">
+								<span class="input-group-addon"><img height=20px width=20px src="images/cards_in_deck.png" /></span>
+								<input class="form-control" id="form_decksize2" placeholder="27">
+							</div>
+						</div>
+					</div>
+				</form>
+					
+		</div>
+		<div id="hand" class="tab-pane fade">
+			<p>Hand</p>
+			<div class="row">
+			  <div class="col-sm-4">.col-sm-4</div>
+			  <div class="col-sm-4">.col-sm-4</div>
+			  <div class="col-sm-4">.col-sm-4</div>
+			</div>
+		</div>
+		<div id="lands" class="tab-pane fade">
+			<p>Lands</p>
+		</div>
+		<div id="creatures" class="tab-pane fade">
+			<p>Creatures</p>
+		</div>
+	</div>
+</div>
+</body>
+</html>
