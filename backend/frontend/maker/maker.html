@@ -14,14 +14,14 @@
 	<canvas id="myCanvas" class="img-responsive" width="1920" height="1080" style="border:1px solid #d3d3d3;">
 		Your browser does not support the HTML5 canvas tag.
 	</canvas>
-	<ul class="nav nav-tabs">
+	<ul class="nav nav-tabs" id="myTab">
 		<li class="active"><a data-toggle="tab" href="#general">Genreal</a></li>
 		<li><a data-toggle="tab" href="#hand">Hand</a></li>
 		<li><a data-toggle="tab" href="#lands">Lands</a></li>
 		<li><a data-toggle="tab" href="#creatures">Creatures</a></li>
 	</ul>
 	<div class="tab-content">
-		<div id="general" class="tab-pane fade in active">
+		<div id="general" class="tab-pane active">
 			<p>General</p>
 				<form class="form-inline">
 					<div class="row">
@@ -69,7 +69,7 @@
 				</form>
 					
 		</div>
-		<div id="hand" class="tab-pane fade">
+		<div id="hand" class="tab-pane">
 			<p>Hand</p>
 			<div class="row">
 			  <div class="col-sm-4">.col-sm-4</div>
@@ -77,10 +77,16 @@
 			  <div class="col-sm-4">.col-sm-4</div>
 			</div>
 		</div>
-		<div id="lands" class="tab-pane fade">
+		<div id="lands" class="tab-pane">
 			<p>Lands</p>
+			<form>
+				<div class="input-group">
+					<span class="input-group-addon">Whatever:</span>
+					<input class="form-control" type="text" id="exampletext" placeholder="Example">
+				</div>
+			</form>
 		</div>
-		<div id="creatures" class="tab-pane fade">
+		<div id="creatures" class="tab-pane">
 			<p>Creatures</p>
 		</div>
 	</div>
