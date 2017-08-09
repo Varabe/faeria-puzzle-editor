@@ -54,7 +54,7 @@ ROOT_URLCONF = 'faeria_puzzle.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["templates/"],
+        'DIRS': ["frontend/"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
