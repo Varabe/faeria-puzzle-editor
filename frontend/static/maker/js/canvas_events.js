@@ -24,13 +24,13 @@ canvas.addEventListener('click', function(event) {
 	}
 });
 var mainelem = new ImageElement(new Image(), 0, 0, 1920, 1080);
-mainelem.images = ["images/MainBoard1.png"];
+mainelem.images = ["/static/maker/images/MainBoard1.png"];
 mainelem.onclick = function (event) {};
 elements.push(mainelem);
 mainelem.setImage(0);
 
 var powerwheel = new ImageElement(new Image(), 1920-370, 1080-370, 370, 370);
-powerwheel.images = ["images/power_wheel_disabled.png", "images/power_wheel_active.png"];
+powerwheel.images = ["/static/maker/images/power_wheel_disabled.png", "/static/maker/images/power_wheel_active.png"];
 powerwheel.onclick = function (event) {
 	if (this.state == 0) {
 		this.setImage(1);
