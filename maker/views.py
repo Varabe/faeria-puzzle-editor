@@ -15,7 +15,7 @@ def index(request):
 def cards(request, card_id):
 	card_id = cardlib.formatId(card_id)
 	#TODO: checkpath (not possible through os, probably will have to do through templates)
-	path = f"/static/cards/English/{card_id}.png"
-	response = f"<img src={path}>"
+	path = "/static/cards/English/%s.png" % card_id
+	response = "<img src=%s>" % path
 	return HttpResponse(response)
 		

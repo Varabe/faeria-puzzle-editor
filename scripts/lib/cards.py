@@ -64,8 +64,8 @@
 def formatId(id_):
 	id_ = str(id_)
 	if len(id_) == 1:
-		return f"00{id_}"
+		return "00%s" % id_
 	elif len(id_) == 2:
-		return f"0{id_}"
+		return "0%s" % id_
 	else:
 		return id_
