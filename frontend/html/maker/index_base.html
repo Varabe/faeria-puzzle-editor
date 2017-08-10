@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Puzzle Editor — Faeria</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container-fluid">
+	<canvas id="myCanvas" class="img-responsive" width="1920" height="1080" style="border:1px solid #d3d3d3;">
+		Your browser does not support the HTML5 canvas tag.
+	</canvas>
+	<ul class="nav nav-tabs">
+		<li class="active"><a data-toggle="tab" href="#general">Genreal</a></li>
+		<li><a data-toggle="tab" href="#hand">Hand</a></li>
+		<li><a data-toggle="tab" href="#lands">Lands</a></li>
+		<li><a data-toggle="tab" href="#creatures">Creatures</a></li>
+	</ul>
+	<div class="tab-content">
+		<div id="general" class="tab-pane fade in active">
+			<p>General</p>
+				<form class="form-inline">
+					<div class="row">
+						<div class="col-sm-8">
+							<div class="input-group">
+								<span class="input-group-addon">Your Name:</span>
+								<input class="form-control" type="text" id="form_name" placeholder="Your Name">
+							</div>
+						</div>
+						<div class="col-sm-2">
+							<div class="input-group">
+								<span class="input-group-addon"><img height=20px width=20px src="/static/maker/images/card_faeriacount.png" /></span>
+								<input class="form-control" id="form_faeria" placeholder="0">
+							</div>
+						</div>
+						<div class="col-sm-2">
+							<div class="input-group">
+								<span class="input-group-addon"><img height=20px width=20px src="/static/maker/images/cards_in_deck.png" /></span>
+								<input class="form-control" id="form_decksize" placeholder="27">
+							</div>
+						</div>
+					</div>
+				</form>
+				<form class="form-inline">
+					<div class="row">
+						<div class="col-sm-8">
+							<div class="input-group">
+								<span class="input-group-addon">Opponent Name:</span>
+								<input class="form-control" type="text" id="form_name2" placeholder="Opponent Name">
+							</div>
+						</div>
+						<div class="col-sm-2">
+							<div class="input-group">
+								<span class="input-group-addon"><img height=20px width=20px src="/static/maker/images/card_faeriacount.png" /></span>
+								<input class="form-control" id="form_faeria2" placeholder="0">
+							</div>
+						</div>
+						<div class="col-sm-2">
+							<div class="input-group">
+								<span class="input-group-addon"><img height=20px width=20px src="/static/maker/images/cards_in_deck.png" /></span>
+								<input class="form-control" id="form_decksize2" placeholder="27">
+							</div>
+						</div>
+					</div>
+				</form>
+					
+		</div>
+		<div id="hand" class="tab-pane fade">
+			<p>Hand</p>
+			<div class="row">
+			  <div class="dropdown">
+				<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+				<span class="caret"></span></button>
+				{% block card_list %}{% endblock %}
+			  </div>
+			</div>
+		</div>
+		<div id="lands" class="tab-pane fade">
+			<p>Lands</p>
+		</div>
+		<div id="creatures" class="tab-pane fade">
+			<p>Creatures</p>
+		</div>
+	</div>
+</div>
+<div id="images" style="width:1px; height:1px; visibility:hidden; overflow:hidden">
+    <img id="main" src="/static/maker/images/MainBoard1.png" />
+	<img id="pw_disabled" src="/static/maker/images/power_wheel_disabled.png" />
+	<img id="pw_active" src="/static/maker/images/power_wheel_active.png" />
+	
+</div>
+<script src='/static/maker/js/canvas_events.js'></script>
+</body>
+</html>
