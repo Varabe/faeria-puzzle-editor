@@ -1,3 +1,3 @@
-data/cards/English/*.png
+frontend/static/cards/English/*.png
 lastfailed
 *.pyc
