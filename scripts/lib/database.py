@@ -1,10 +1,10 @@
 from csv import reader as csv_reader
 from collections import namedtuple
-from copy import deepcopy
 
-from lib.errors import DatabaseError
-from lib.cards import Card
+from scripts.lib.errors import DatabaseError
 
+
+CardInfo = namedtuple("CardInformation", rename=True, field_names="id color name type _ std_faeria lake mountain forest desert std_power std_life effects _ count_in_codex codex_id rarity")
 
 class Database:
 	def __init__(self, path):
@@ -14,7 +14,7 @@ class Database:
 	def getByField(self, field, value):
 		for card in self.contents:
 			if card.__getattribute__(field) == value:
-				return deepcopy(card)
+				return card
 		else:
 			raise DatabaseError("Field '{}' with value '{}' not found".format(field, value))
 
@@ -30,17 +30,11 @@ class Database:
 			return [card.__getattribute__(field) for card in data]
 		elif field is not None and value is not None:
 			cards = [c for c in data if c.__getattribute__(field) == value]
-			return [deepcopy(card) for card in cards]
+			return cards
 		else:
-			return [deepcopy(card) for card in data]
+			return data
 
 	def _getContents(self):
 		with open(self.path, newline='') as csvfile:
 			reader = csv_reader(csvfile, delimiter=';')
-			return tuple(extractCards(reader))
-
-
-def extractCards(reader):
-	for row in reader:
-		row = (int(f) if f.isdigit() else f for f in row)
-		yield Card(*row)
+			return tuple(CardInfo(*row) for row in reader)
