@@ -35,6 +35,6 @@ class Database:
 			return data
 
 	def _getContents(self):
-		with open(self.path, newline='') as csvfile:
+		with open(self.path) as csvfile:
 			reader = csv_reader(csvfile, delimiter=';')
 			return tuple(CardInfo(*row) for row in reader)
