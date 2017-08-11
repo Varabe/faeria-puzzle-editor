@@ -1,0 +1,7 @@
+.card_search_class{
+	padding-bottom: 30px;
+}
+.card_list{
+    height: 500px;
+    overflow-y: auto;
+}
