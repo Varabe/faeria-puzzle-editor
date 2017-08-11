@@ -2,8 +2,8 @@
 
 {% block card_list %}
 	<ul class="list-group">
-		{% for card in all_cards %}
-	  <li class="list-group-item"><a href="/maker/cards/{{ card.id }}">{{ card.name }}</a></li>
+		{% for id, name, cost in cards %}
+	  <li class="list-group-item"><a href="/maker/cards/{{ id }}">{{ cost }} || {{ name }}</a></li>
 	  {% endfor %}
 	</ul>
 {% endblock %}
