@@ -6,7 +6,7 @@ import os
 
 
 def index(request):
-	database = Database("data/cards/merlin_shortened.csv")
+	database = Database("database.csv")
 	all_cards = database.getAll()
 	context = {"all_cards":all_cards}
 	template = loader.get_template("maker/index.html")
