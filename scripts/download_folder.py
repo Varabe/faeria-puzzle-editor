@@ -43,4 +43,6 @@ if __name__ == "__main__":
 	repo = "Faeria_Cards"
 	folder_path = "CardExport"
 	folder_name = "English" # just change it to download other langs
-	downloadFolder(owner, repo, folder_path, folder_name, path="../data/cards")
+	path = "../frontend/static/cards"
+	downloadFolder(owner, repo, folder_path, folder_name, path)
+	downloadFile("https://github.com/abrakam/Faeria_Cards/blob/master/CardExport/merlin_shortened.csv", "../cardbase.csv")
