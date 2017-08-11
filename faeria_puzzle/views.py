@@ -4,5 +4,4 @@ from django.template import loader
 
 def index(request):
 	template = loader.get_template("main/index.html")
-	render = template.render()
-	return HttpResponse(render)
+	return HttpResponse(template.render())

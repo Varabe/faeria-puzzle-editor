@@ -1,17 +1,7 @@
 # from PIL import Image, ImageFont, ImageDraw
-# from collections import namedtuple
-
 # from lib.properties import ImageProperty
-# from lib.errors import CardError
 
 
-"""
-	All the commonly-used fields are named same as in the game/wiki
-	rename=True gives the always-empty fields "_" specific names in
-	the form of "_index", for example "_4". Life and Power have an
-	std_ prefix because in the actual cards user's going to change
-	their values
-"""
 # card_font = ImageFont.truetype("/home/varabe/.fonts/truetype/Baskerville/LibreBaskerville-Bold.otf", 75)
 
 
@@ -61,11 +51,11 @@
 # 			raise CardError(f"Card ID:{id_} image not found.") from e
 
 
-def formatId(id_):
-	id_ = str(id_)
-	if len(id_) == 1:
-		return "00%s" % id_
-	elif len(id_) == 2:
-		return "0%s" % id_
+def formatId(card_id):
+	card_id = str(card_id)
+	if len(card_id) == 1:
+		return "00%s" % card_id
+	elif len(card_id) == 2:
+		return "0%s" % card_id
 	else:
-		return id_
+		return card_id
