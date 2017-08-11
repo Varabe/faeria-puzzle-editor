@@ -36,9 +36,5 @@ class Database:
 
 	def _getContents(self):
 		with open(self.path) as csvfile:
-			""" Костыль. Я не знаю, что это и почему, но без этого
-				*row не распаковывается, а остается единым объектом
-			""" 
-			csvfile.read()
 			reader = csv_reader(csvfile, delimiter=';')
 			return tuple(CardInfo(*row) for row in reader)

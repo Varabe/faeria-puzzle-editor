@@ -39,10 +39,10 @@ def _downloadFiles(files, path):
 
 
 if __name__ == "__main__":
-	owner = "abrakam"
-	repo = "Faeria_Cards"
-	folder_path = "CardExport"
-	folder_name = "English" # just change it to download other langs
-	path = "../frontend/static/cards"
-	downloadFolder(owner, repo, folder_path, folder_name, path)
-	downloadFile("https://github.com/abrakam/Faeria_Cards/blob/master/CardExport/merlin_shortened.csv", "../cardbase.csv")
+	# owner = "abrakam"
+	# repo = "Faeria_Cards"
+	# folder_path = "CardExport"
+	# folder_name = "English" # just change it to download other langs
+	# path = "../frontend/static/cards"
+	# downloadFolder(owner, repo, folder_path, folder_name, path)
+	downloadFile("https://raw.githubusercontent.com/abrakam/Faeria_Cards/master/CardExport/merlin_shortened.csv", "../cardbase.csv")
