@@ -4,7 +4,8 @@ from collections import namedtuple
 from scripts.lib.errors import DatabaseError
 
 
-CardInfo = namedtuple("CardInformation", rename=True, field_names="id color name type _ std_faeria lake mountain forest desert std_power std_life effects _ count_in_codex codex_id rarity")
+CardInfo = namedtuple("CardInformation", rename=True, field_names=
+	"id color name type _ faeria lake mountain forest desert power life effects _ count_in_codex codex_id rarity")
 
 class Database:
 	def __init__(self, path):
