@@ -2,6 +2,7 @@ from scripts.lib.database import Database
 from django.http import HttpResponse
 from django.template import loader
 import scripts.lib.cards as cardlib
+import os
 
 
 def index(request):
@@ -13,9 +14,12 @@ def index(request):
 	return HttpResponse(render)
 
 def cards(request, card_id):
-	card_id = cardlib.formatId(card_id)
-	#TODO: checkpath (not possible through os, probably will have to do through templates)
-	path = "/static/cards/English/%s.png" % card_id
-	response = "<img src=%s>" % path
+	image = "%s.png" % cardlib.formatId(card_id)
+	django_path = "/static/cards/English/" + image
+	real_path = "frontend" + django_path
+	if os.path.exists(real_path):
+		response = "<img src=%s>" % django_path
+	else:
+		response = "Card not found."
 	return HttpResponse(response)
 		
