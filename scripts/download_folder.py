@@ -12,6 +12,11 @@ def downloadFolder(owner, repo, folder_path, folder_name, path="."):
 	files = _yieldFromFolder(folder)
 	_downloadFiles(files, path)
 
+def downloadFile(url, path):
+	response = requests.get(url, stream=True)
+	with open(path, "wb") as f:
+		for chunk in response:
+			f.write(chunk)
 
 def getRepoFolder(owner, repo, folder_path, folder_name):
 	url = "{}/repos/{}/{}/contents/{}/{}".format(
@@ -31,13 +36,6 @@ def _downloadFiles(files, path):
 		file_path = "{}/{}".format(path, name)
 		downloadFile(download_url, file_path)
 		print(name + " downloaded")
-
-
-def downloadFile(url, path):
-	response = requests.get(url, stream=True)
-	with open(path, "wb") as f:
-		for chunk in response:
-			f.write(chunk)
 
 
 if __name__ == "__main__":
