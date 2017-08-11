@@ -1,9 +1,9 @@
 {% extends "maker/index_base.html" %}
 
 {% block card_list %}
-	<ul class="dropdown-menu">
+	<ul class="list-group">
 		{% for card in all_cards %}
-	  <li><a href="/maker/cards/{{ card.id }}">{{ card.name }}</a></li>
+	  <li class="list-group-item"><a href="/maker/cards/{{ card.id }}">{{ card.name }}</a></li>
 	  {% endfor %}
 	</ul>
 {% endblock %}
