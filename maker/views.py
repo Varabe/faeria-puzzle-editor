@@ -16,19 +16,16 @@ def index(request):
 
 
 def yieldCardsInfo(cards):
-	# Пока что функция уродлива, потом рефакторну
-	land_names = ["L", "M", "F", "D"]
+	land_cost = ", lands:"
+	names = ("L", "M", "F", "D")
 	for card in cards:
-		land_values = card.lake, card.mountain, card.forest, card.desert
-		lands = tuple(zip(land_names, land_values))
-		lands = [(n, v) for n, v in lands if v is not '']
-		cost = "lands:"
-		for name, value in lands:
-			cost += " %s%s" % (name, value)
-		if cost == "lands:":
-			cost = card.faeria
-		else:
-			cost = "%s, %s" % (card.faeria, cost)
+		cost = card.faeria
+		values = card.lake, card.mountain, card.forest, card.desert
+		lands = [(n, v) for n, v in zip(names, values) if v is not '']
+		if lands:
+			cost += land_cost
+			for name, value in lands:
+				cost += " %s%s" % (name, value)
 		yield card.id, card.name, cost 
 
 
