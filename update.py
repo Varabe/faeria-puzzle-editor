@@ -1,6 +1,6 @@
 from argparse import ArgumentParser
 
-from lib.github import downloadFile, downloadFolder
+from scripts.lib.github import downloadFile, downloadFolder
 
 
 def main(args=None):
@@ -35,7 +35,7 @@ def makeParser():
 
 def downloadDatabase():
 	url = "https://raw.githubusercontent.com/abrakam/Faeria_Cards/master/CardExport/merlin_shortened.csv"
-	path = "../cardbase.csv"
+	path = "cardbase.csv"
 	downloadFile(url, path)
 	print("Updated database")
 
@@ -45,7 +45,7 @@ def downloadCardFolder(language):
 	repo = "Faeria_Cards"
 	folder_path = "CardExport"
 	folder_name = language
-	path = "../frontend/static/cards/"
+	path = "frontend/static/cards/"
 	downloadFolder(owner, repo, folder_path, folder_name, path)
 	print("Folder '%s' finished downloading" % language)
 
