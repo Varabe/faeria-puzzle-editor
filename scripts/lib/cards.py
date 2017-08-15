@@ -51,11 +51,4 @@
 # 			raise CardError(f"Card ID:{id_} image not found.") from e
 
 
-def formatId(card_id):
-	card_id = str(card_id)
-	if len(card_id) == 1:
-		return "00%s" % card_id
-	elif len(card_id) == 2:
-		return "0%s" % card_id
-	else:
-		return card_id
+

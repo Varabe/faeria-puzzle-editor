@@ -2,8 +2,9 @@
 
 {% block card_list %}
 	<ul class="list-group">
-		{% for id, name, cost in cards %}
-	  <li class="list-group-item"><a onclick="addToHand( new Card('{{ name }}', '{{ id }}', '{{cost}}' ) );">{{ cost }} || {{ name }}</a></li>
+	<!-- Card(id color name type faeria lake mountain forest desert power life rarity image) -->
+		{% for card in cards %}
+	  <li class="list-group-item"><a onclick="addToHand( new Card('{{ card.name }}', '{{ card.image }}') );">{{ card.faeria }}, {{ card.name }}</a></li>
 	  {% endfor %}
 	</ul>
 {% endblock %}
