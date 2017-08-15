@@ -3,6 +3,12 @@ from argparse import ArgumentParser
 from maker.scripts.github import downloadFile, downloadFolder
 
 
+LANGUAGES = [
+	"ChineseSimplified", "ChineseTraditional", "Czech",
+	"English", "French", "German", "Italian", "Japanese", 
+	"Korean", "Portuguese", "Russian", "Spanish"]
+
+
 def main(args=None):
 	""" To use inside a script:
 
@@ -15,18 +21,14 @@ def main(args=None):
 	args = parser.parse_args(*args)
 	downloadDatabase()
 	if args.cards:
-		for language in args.languages:
-			downloadCardFolder(language)
+		downloadCards(args.languages)
 
 
 def makeParser():
-	languages = (
-		"ChineseSimplified", "ChineseTraditional", "Czech",
-		"English", "French", "German", "Italian", "Japanese", 
-		"Korean", "Portuguese", "Russian", "Spanish")
 	parser = ArgumentParser(prog="CardBase updater")
 	parser.add_argument("-c", "--cards",
 		action="store_true", help="Download card folder(s) (may take a lot of time)")
+	languages = LANGUAGES + ["ALL"]
 	parser.add_argument("-l", "--language",
 		dest="languages", nargs="+", default=["English"],
 		choices=languages, metavar="", help="Default: 'English', Choices:" + str(languages))
@@ -38,6 +40,13 @@ def downloadDatabase():
 	path = "cardbase.csv"
 	downloadFile(url, path)
 	print("Updated database")
+
+
+def downloadCards(languages):
+	if "ALL" in languages:
+		languages = LANGUAGES
+	for language in languages:
+		downloadCardFolder(language)
 
 
 def downloadCardFolder(language):
