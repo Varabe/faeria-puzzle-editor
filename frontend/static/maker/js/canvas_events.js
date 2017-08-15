@@ -22,6 +22,7 @@ $(document).ready( function () {
 		this.text = "";
 		this.tab = "";
 		this.textfield = "";
+		this.align = "center";
 		this.setText = function (text) {
 			this.text = text;
 			canvas.dispatchEvent(elementChanged);
@@ -57,7 +58,7 @@ $(document).ready( function () {
 			} else {
 				ctx.fillStyle = 'white';
 			}
-			ctx.textAlign = "center";
+			ctx.textAlign = el.align;
 			ctx.fillText(el.text, el.x + el.width/2, el.y + el.height*2/3);
 		}
 	});
@@ -113,6 +114,7 @@ $(document).ready( function () {
 	$('#form_name').on('input', function (event) {
 		nickname1.setText($('#form_name').val());
 	});
+	nickname1.setText($('#form_name').val());
 	
 	//Opponent's Nickname
 	var nickname2 = new TextElement("bold 18px Libre Baskerville", 76, 34, 142, 30);
@@ -124,6 +126,7 @@ $(document).ready( function () {
 	$('#form_name2').on('input', function (event) {
 		nickname2.setText($('#form_name2').val());
 	});
+	nickname2.setText($('#form_name2').val());
 	
 	//Your Faeria
 	var faeria1 = new TextElement("bold 44px Libre Baskerville", 110, 891, 95, 95);
@@ -135,6 +138,7 @@ $(document).ready( function () {
 	$('#form_faeria').on('input', function (event) {
 		faeria1.setText($('#form_faeria').val());
 	});
+	faeria1.setText($('#form_faeria').val());
 	
 	//Opponent's Faeria
 	var faeria2 = new TextElement("bold 44px Libre Baskerville", 103, 95, 95, 95);
@@ -146,5 +150,29 @@ $(document).ready( function () {
 	$('#form_faeria2').on('input', function (event) {
 		faeria2.setText($('#form_faeria2').val());
 	});
+	faeria2.setText($('#form_faeria2').val());
 	
+	var decksize1 = new TextElement("bold 16px Libre Baskerville", 103, 1052, 55, 25);
+	decksize1.color = "white";
+	decksize1.tab = '#myTab a[href="#general"]';
+	decksize1.textfield = '#form_decksize';
+	decksize1.align = 'left';
+	textelements.push(decksize1);
+	//on input redraw text
+	$('#form_decksize').on('input', function (event) {
+		decksize1.setText($('#form_decksize').val());
+	});
+	decksize1.setText($('#form_decksize').val());
+	
+	var decksize2 = new TextElement("bold 16px Libre Baskerville", 96, 5, 55, 25);
+	decksize2.color = "white";
+	decksize2.tab = '#myTab a[href="#general"]';
+	decksize2.textfield = '#form_decksize2';
+	decksize2.align = 'left';
+	textelements.push(decksize2);
+	//on input redraw text
+	$('#form_decksize2').on('input', function (event) {
+		decksize2.setText($('#form_decksize2').val());
+	});
+	decksize2.setText($('#form_decksize2').val());
 });
