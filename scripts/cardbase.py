@@ -1,7 +1,7 @@
 from csv import reader as csv_reader
 
-from scripts.lib.errors import CardbaseError
-from scripts.lib.cards import Card
+from scripts.errors import CardbaseError
+from scripts.cards import Card
 
 class Cardbase:
 	def __init__(self, path):

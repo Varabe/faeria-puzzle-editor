@@ -1,6 +1,6 @@
 from argparse import ArgumentParser
 
-from scripts.lib.github import downloadFile, downloadFolder
+from scripts.github import downloadFile, downloadFolder
 
 
 def main(args=None):

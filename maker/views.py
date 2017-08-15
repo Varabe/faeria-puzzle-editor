@@ -1,4 +1,4 @@
-from scripts.lib.cardbase import Cardbase
+from scripts.cardbase import Cardbase
 from django.http import HttpResponse
 from django.template import loader
 
@@ -10,4 +10,3 @@ def index(request):
 	template = loader.get_template("maker/index.html")
 	render = template.render(context, request)
 	return HttpResponse(render)
-		
