@@ -113,6 +113,7 @@ $(document).ready( function () {
 	$('#form_name').on('input', function (event) {
 		nickname1.setText($('#form_name').val());
 	});
+	nickname1.setText($('#form_name').val());
 	
 	//Opponent's Nickname
 	var nickname2 = new TextElement("bold 18px Libre Baskerville", 76, 34, 142, 30);
@@ -124,6 +125,7 @@ $(document).ready( function () {
 	$('#form_name2').on('input', function (event) {
 		nickname2.setText($('#form_name2').val());
 	});
+	nickname2.setText($('#form_name2').val());
 	
 	//Your Faeria
 	var faeria1 = new TextElement("bold 44px Libre Baskerville", 110, 891, 95, 95);
@@ -135,6 +137,7 @@ $(document).ready( function () {
 	$('#form_faeria').on('input', function (event) {
 		faeria1.setText($('#form_faeria').val());
 	});
+	faeria1.setText($('#form_faeria').val());
 	
 	//Opponent's Faeria
 	var faeria2 = new TextElement("bold 44px Libre Baskerville", 103, 95, 95, 95);
@@ -146,5 +149,6 @@ $(document).ready( function () {
 	$('#form_faeria2').on('input', function (event) {
 		faeria2.setText($('#form_faeria2').val());
 	});
+	faeria2.setText($('#form_faeria2').val());
 	
 });
