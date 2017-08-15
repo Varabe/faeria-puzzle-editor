@@ -72,27 +72,26 @@
 					
 		</div>
 		<div id="hand" class="tab-pane fade">
-			<p>Hand</p>
-			<div class="row">
+			<div class="col-sm-4">
 
-			<ul id="cards_in_hand" class="list-group">
-				<li id="add_button" class="list-group-item">
-					<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#cardModal">Add a card</button>
-				</li>
-			</ul>
+				<ul id="cards_in_hand" class="list-group">
+					<li id="add_button" class="list-group-item">
+						<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#cardModal">Add a card</button>
+					</li>
+				</ul>
 
-			<div class="modal fade" id="cardModal" role="dialog">
-				<div class="modal-dialog">
+				<div class="modal fade" id="cardModal" role="dialog">
+					<div class="modal-dialog">
 
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal">&times;</button>
-							<h4 class="modal-title">Choose a card</h4>
-						</div>
-						<div class="modal-body">
-							<form class="card_search_class">
-								<div class="input-group">
-									<input type="text" onkeyup="cardFilter()" id="card_search" class="form-control" placeholder="Search">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<h4 class="modal-title">Choose a card</h4>
+							</div>
+							<div class="modal-body">
+								<form class="card_search_class">
+									<div class="input-group">
+										<input type="text" onkeyup="cardFilter()" id="card_search" class="form-control" placeholder="Search">
 										<div class="input-group-btn">
 											<button class="btn btn-default" type="submit">
 												<i class="glyphicon glyphicon-search"></i>
@@ -111,6 +110,9 @@
 
 					</div>
 				</div>
+			</div>
+			<div class="col-sm-8">
+				<ul id="img_list" class="list-inline"></ul>
 			</div>
 		</div>
 		<div id="lands" class="tab-pane fade">

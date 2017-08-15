@@ -3,7 +3,7 @@
 {% block card_list %}
 	<ul class="list-group">
 		{% for id, name, cost in cards %}
-	  <li class="list-group-item"><a onclick="addToHand( new Card('{{ name }}', '{{cost}}') );">{{ cost }} || {{ name }}</a></li>
+	  <li class="list-group-item"><a onclick="addToHand( new Card('{{ name }}', '{{ id }}', '{{cost}}' ) );">{{ cost }} || {{ name }}</a></li>
 	  {% endfor %}
 	</ul>
 {% endblock %}
