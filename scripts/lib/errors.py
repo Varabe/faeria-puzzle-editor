@@ -1,2 +1,2 @@
 class BackendError(Exception): pass
-class DatabaseError(BackendError): pass
+class CardbaseError(BackendError): pass

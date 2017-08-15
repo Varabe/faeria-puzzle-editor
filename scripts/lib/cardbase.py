@@ -1,13 +1,13 @@
 from csv import reader as csv_reader
 from collections import namedtuple
 
-from scripts.lib.errors import DatabaseError
+from scripts.lib.errors import CardbaseError
 
 
 CardInfo = namedtuple("CardInformation", rename=True, field_names=
 	"id color name type _ faeria lake mountain forest desert power life effects _ count_in_codex codex_id rarity")
 
-class Database:
+class Cardbase:
 	def __init__(self, path):
 		self.path = path
 		self.contents = self._getContents()
@@ -17,7 +17,7 @@ class Database:
 			if card.__getattribute__(field) == value:
 				return card
 		else:
-			raise DatabaseError("Field '{}' with value '{}' not found".format(field, value))
+			raise CardbaseError("Field '{}' with value '{}' not found".format(field, value))
 
 	def getById(self, card_id):
 		return self.getByField("id", card_id)

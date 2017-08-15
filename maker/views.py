@@ -1,4 +1,4 @@
-from scripts.lib.database import Database
+from scripts.lib.cardbase import Cardbase
 from django.http import HttpResponse
 from django.template import loader
 import scripts.lib.cards as cardlib
@@ -6,8 +6,8 @@ import os
 
 
 def index(request):
-	database = Database("cardbase.csv")
-	all_cards = database.getAll()
+	cardbase = Cardbase("cardbase.csv")
+	all_cards = cardbase.getAll()
 	info = yieldCardsInfo(all_cards)
 	context = {"cards":info}
 	template = loader.get_template("maker/index.html")
