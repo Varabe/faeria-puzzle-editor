@@ -1,4 +1,4 @@
-from scripts.cardbase import Cardbase
+from maker.scripts.cardbase import Cardbase
 from django.http import HttpResponse
 from django.template import loader
 
