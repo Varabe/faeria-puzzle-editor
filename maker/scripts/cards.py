@@ -2,8 +2,7 @@ from collections import namedtuple
 import os
 
 
-LAND_FIELDS = 5, 6, 7, 8
-USELESS_CARD_FIELDS = 15, 14, 13, 12, 4
+LAND_FIELDS = 4, 5, 6, 7, 8, 9
 IMAGE_TEMPLATE = "/static/cards/English/%s.png"
 IMAGE_NOT_FOUND = "/static/cards/notfound.png"
 CARD_FIELDS = "id color name type wild faeria lake forest mountain desert power life text codex count_in_codex codex_id rarity image"
