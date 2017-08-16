@@ -99,6 +99,14 @@
 										</div>
 									</div>
 								</form>
+								<ul id="land_filter" class="nav nav-pills">
+									<li id="all" class="active"><a href="javascript: setLandFilter('all');">All</a></li>
+									<li id="neutral"><a href="javascript: setLandFilter('neutral');"><img src="/static/maker/images/icon_land_human.png"></i></a></li>
+									<li id="forest"><a href="javascript: setLandFilter('forest');"><img src="/static/maker/images/icon_land_green.png"></i></a></li>
+									<li id="lake"><a href="javascript: setLandFilter('lake');"><img src="/static/maker/images/icon_land_blue.png"></i></a></li>
+									<li id="mountain"><a href="javascript: setLandFilter('mountain');"><img src="/static/maker/images/icon_land_red.png"></i></a></li>
+									<li id="desert"><a href="javascript: setLandFilter('desert');"><img src="/static/maker/images/icon_land_yellow.png"></i></a></li>
+								</ul>
 								<div class="card_list">
 									{% block card_list %}{% endblock %}
 								</div>

@@ -4,7 +4,7 @@
 	<ul class="list-group">
 	<!-- Card(id color name type faeria lake mountain forest desert power life rarity image) -->
 		{% for card in cards %}
-	  <li class="list-group-item"><a onclick="addToHand( new Card('{{ card.name }}', '{{ card.image }}') );">{{ card.faeria }}, {{ card.name }}</a></li>
+	  <li class="list-group-item"><a onclick="addToHand( new Card('{{ card.name }}', '{{ card.image }}') );" lands="{{ card.forest }}{{ card.lake}}{{ card.mountain }}{{ card.desert }}">{{ card.faeria }}, {{ card.name }}</a></li>
 	  {% endfor %}
 	</ul>
 {% endblock %}
