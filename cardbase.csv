@@ -116,7 +116,7 @@
 142;GREEN;Shamanic Dance;event;;2;;2;;;;;Give a creature +0/+4 and {taunt}.;;2;101000;COMMON
 143;GREEN;Tiki Totem;structure;;3;;2;;;;3;The first creature you summon per turn gains +1/+1.;;0;101000;RARE
 144;GREEN;Possessed Ursus;creature;;5;;2;;;1;8;Whenever this creature is dealt damage, its Attack doubles.;;0;101000;EPIC
-149;GREEN;Oakling;creature;;5;;2;;;1;5;{last_words} - A random creature in your hand gains +5/+5.;;0;101000;RARE
+149;GREEN;Oakling;creature;;5;;2;;;1;5;{last_words} - A random green creature in your hand gains +5/+5.;;0;101000;RARE
 150;GREEN;Thyrian Golem;creature;;5;;5;;;5;10;;;2;100007;RARE
 151;GREEN;Seed Sower;creature;;6;;1;;;4;6;{gift} - Creates an adjacent forest at random.;;2;100007;COMMON
 152;GREEN;Vine Wall;structure;;1;;2;;;;4;"{taunt} {last_words} - Create a forest at random.";;2;101000;COMMON
@@ -214,7 +214,7 @@
 264;YELLOW;Soul Pact;event;;0;;;;2;;;Gain {faeria|2} and deal 2 damage to yourself.;;2;101000;COMMON
 265;YELLOW;Altar of Souls;structure;;2;;;;3;;3;{activate} - Deal 2 damage to yourself and add a 6/1 <b>Slaughtering Shadow</b> to your hand. It costs {faeria|2}.;;0;101000;EPIC
 266;YELLOW;Shaytan Demon;creature;;3;;;;2;5;4;{production} - Deal 2 damage to yourself.;;2;100019;COMMON
-267;YELLOW;Khalim's Skyguard;creature;;4;;;;2;4;3;"{flying} Can be summoned anywhere adjacent to a friendly creature.";;2;100020;COMMON
+267;YELLOW;Khalim's Skyguard;creature;;4;;;;2;4;3;"{flying} Can be summoned adjacent to friendly creatures.";;2;100020;COMMON
 268;YELLOW;Khalim's Training;event;;1;;;;2;;;Give a creature +1/+0, {flying} and {charge|2}.;;0;101000;RARE
 273;YELLOW;Wind Soldier;creature;;3;;;;2;3;1;"{haste}, {charge|3} Wind Soldier dies at end of turn.";;2;100018;COMMON
 274;YELLOW;Drakkar Skycaptain;creature;;4;;;;1;2;4;"{flying} Whenever you draw a flying creature, it gains +1/+1.";;0;101000;RARE
@@ -248,7 +248,7 @@
 310;YELLOW;Windstorm Charger;creature;;3;;;;2;2;4;"{charge|2} Whenever you play an event, gain +2/+0 this turn (limit +6/+0).";;0;101000;COMMON
 311;HUMAN;Apex Predator;creature;;7;3;3;;;3;3;"{jump} {gift} - Gain Attack and Life equal to any creature's.";;0;101000;EPIC
 312;HUMAN;Icerock Behemoth;creature;;8;3;;3;;8;8;{taunt}, {protection};;0;101000;EPIC
-313;HUMAN;Twinsoul Spirit;creature;;4;3;;;3;4;3;"{flying} Can be summoned adjacent to a friendly creature. {gift} - Summon another <b>Twinsoul Spirit</b>.";;0;101000;EPIC
+313;HUMAN;Twinsoul Spirit;creature;;4;3;;;3;4;3;"{flying} Can be summoned adjacent to friendly creatures. {gift} - Summon another <b>Twinsoul Spirit</b>.";;0;101000;EPIC
 314;HUMAN;Crackthorn Beast;creature;;6;;3;3;;3;3;"{dash|2} {gift} - Deal 4 damage randomly split among enemies. Give +4/+4 randomly split among allies.";;0;101000;EPIC
 315;HUMAN;Soul Eater;creature;;5;;3;;3;1;1;"{flying}, {charge|3} Gain +1/+1 for each friendly creature that has died this game.";;0;101000;EPIC
 316;HUMAN;Scourgeflame Specter;creature;;7;;;3;3;2;5;"{flying}, {haste}, {charge|2} {combat} - Deal 3 damage to your opponent.";;0;101000;EPIC
@@ -275,7 +275,7 @@
 339;YELLOW;Rushing Wind;event;;0;;;;2;;;Move a friendly creature.;;2;106666;RARE
 340;HUMAN;Syland Warrior;creature;;5;;;;;1;6;;;0;106666;COMMON
 341;HUMAN;Defender of the Homeland;creature;;2;;;;;1;2;"{taunt} {gift} - If you were attacked last turn, summon another <b>Defender of the Homeland</b>.";;;106666;COMMON
-342;RED;Hilo, Divine Flame;creature;;0;;;3;;0;6;"{divine} Hilo keeps his master Pyhros relax while in play. {production} - Hilo loses 1 life.";;;106666;COMMON
+342;RED;Kojin, Divine Flame;creature;;0;;;3;;0;6;"{divine} Kojin keeps his master Pyhros relax while in play. {production} - Kojin loses 1 life.";;;106666;COMMON
 350;HUMAN;Three Wishes;event;;3;2;2;2;2;;;Gain 3 Life and copy the top 3 cards of your opponent's deck. They cost {faeria|3} less. You cannot wish for more wishes.;;0;101000;EPIC
 351;HUMAN;Rebel Glider;creature;;3;;;;;2;3;"{flying}, {dash|2} Can't harvest faeria.";;0;101000;COMMON
 352;HUMAN;Radiance, Imperial Airship;creature;;20;;;;;10;10;"{flying}, {dash|3} Radiance's faeria cost equals your Life total. {gift} - Gain 1 Life for each card in your hand.";;0;101000;LEGENDARY
@@ -292,7 +292,7 @@
 363;BLUE;Triton Trainer;creature;;3;2;;;;3;2;"{jump} {gift} - Give the next {jump} creature you summon +2/+0.";;0;101000;RARE
 364;GREEN;Voice of Truth;creature;;4;;2;;;1;5;{gift} - Restore a creature to its original Attack and Life.;;0;101000;RARE
 365;RED;Herald of War;creature;;3;;;2;;3;3;{combat} - Give the next {combat} creature you summon +1/+1.;;0;101000;RARE
-366;YELLOW;Mistral Guide;creature;;4;;;;4;4;4;"{flying} Friendly creatures summoned adjacent to this creature gain {dash|2} and {flying}.";;0;101000;RARE
+366;YELLOW;Mistral Guide;creature;2;4;;;;2;4;4;"{flying} Friendly creatures summoned adjacent to this creature gain {dash|2} and {flying}.";;0;101000;RARE
 367;HUMAN;Divine Guardian;creature;;2;;;;;0;4;"{divine} When you would take lethal damage, prevent it and destroy this creature instead.";;0;101000;EPIC
 368;HUMAN;The Emperor's Command;event;;2;;;;;;;"{options|Give a creature -2/-1.|Deal 3 damage to a structure.|Gain 4 life.} - Give a creature -2/-1 - Deal 3 damage to a structure - Gain 4 life.";;0;101000;EPIC
 369;BLUE;Illusion of Grandeur;creature;;7;2;;;;0;0;"{charge|2} Whenever you summon a creature that costs {faeria|1} or less, this gains Attack and Life equal to that creature's (while in your hand or deck).";;0;101000;EPIC
@@ -332,3 +332,15 @@
 430;PANDORA;Doom Scythe;event;;5;;;;;;;Destroy a creature. Summon a 6/1 <b>Slaughtering Shadow</b> in its place.;;0;107777;RARE
 431;PANDORA;Jeweled Magpie;creature;;3;;;;;1;5;"{flying}, {haste} Whenever this creature attacks a god, add a random <b>Treasure</b> to your hand.";;0;107777;RARE
 432;PANDORA;Wheel of Chaos;event;;2;;;;;;;"{options|Destroy 2 unoccupied lands.|Destroy a creature with 5 Attack or less.|Gain 7 Life.} - Destroy 2 unoccupied lands. - Destroy a creature with 5 Attack or less. - Gain 7 Life.";;0;107777;RARE
+433;PANDORA;Ulani's Medallion;event;;6;;;;;;;Choose a friendly creature. All your creatures become a copy of it.;;0;107778;RARE
+501;HUMAN;Intrepid Explorer;creature;1;3;;;;;3;3;{gift} - Add an <b>Explore</b> card to each player's hand.;;0;102001;COMMON
+502;HUMAN;Crystal Flower;structure;4;3;;;;;;5;"{gift} - {swallow} a creature. {production} - Deal 1 damage to this structure.";;0;102001;EPIC
+503;HUMAN;Yakkapult;creature;6;3;;;;;2;5;"{ranged_attack} Whenever this attacks, summon a 2/2 <b>Angry Yak</b> in a random space adjacent to the target.";;0;102002;EPIC
+504;HUMAN;Goki, Friendly Miner;creature;4;2;;;;;2;4;{gift} - Add a random treasure to your ally's hand.;;0;102001;LEGENDARY
+505;HUMAN;Azure Skywhale;creature;8;6;;;;;6;8;"{flying}, {charge|3} {gift} - {swallow} a creature.";;0;102002;EPIC
+510;GREEN;Gift of the Rakoa;event;;3;;2;;;;;Give a creature +1/+1 for each creature you control.;;0;102002;EPIC
+515;RED;Rakoan Reveller;creature;;2;;;2;;1;2;{last_words} - Gain faeria equal to this creature's attack.;;0;102002;COMMON
+521;HUMAN;Frog-Tosser;creature;2;5;2;2;;;4;6;{gift} - Fight an enemy creature. Summon a 2/2 <b>Frog</b> with {jump} in a random space adjacent to the target.;;0;102002;EPIC
+530;HUMAN;Rakoan Chieftain;creature;;4;;;2;2;2;5;"{dash|1} Give adjacent friendly creatures +2/+0.";;0;102002;RARE
+532;HUMAN;Ulani, Oversky Shaman;creature;;4;1;1;1;1;2;2;{gift} - Draw a green card, a blue card, a red card and a yellow card from your deck.;;0;102002;LEGENDARY
+555;HUMAN;Angry Yak;creature;;3;;;;;2;2;;;0;106666;COMMON
