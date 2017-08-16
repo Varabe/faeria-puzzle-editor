@@ -2,7 +2,8 @@ from collections import namedtuple
 import os
 
 
-USELESS_CARD_FIELDS = 15, 14, 13, 12, 4 
+LAND_FIELDS = 5, 6, 7, 8
+USELESS_CARD_FIELDS = 15, 14, 13, 12, 4
 IMAGE_TEMPLATE = "/static/cards/English/%s.png"
 IMAGE_NOT_FOUND = "/static/cards/notfound.png"
 Card_metaclass = namedtuple("Card", field_names="id color name type faeria lake mountain forest desert power life rarity image")
@@ -10,8 +11,10 @@ Card_metaclass = namedtuple("Card", field_names="id color name type faeria lake 
 
 
 def Card(card_fields):
-	for field in USELESS_CARD_FIELDS:
-		card_fields.pop(field)
+	for field_id in LAND_FIELDS:
+		card_fields[field_id] = card_fields[field_id] or "0"
+	for field_id in USELESS_CARD_FIELDS:
+		card_fields.pop(field_id)
 	card_id = formatId(card_fields[0])
 	card_fields.append(getImage(card_id))
 	return Card_metaclass(*card_fields)

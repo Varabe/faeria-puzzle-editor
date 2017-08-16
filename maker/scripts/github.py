@@ -48,4 +48,3 @@ def _downloadFiles(files, path):
 		file_path = "{}/{}".format(path, name)
 		downloadFile(download_url, file_path)
 		print(name + " downloaded")
-
