@@ -4,7 +4,27 @@
 	<ul class="list-group">
 	<!-- Card(id color name type faeria lake mountain forest desert power life rarity image) -->
 		{% for card in cards %}
-	  <li class="list-group-item"><a onclick="addToHand( new Card('{{ card.name }}', '{{ card.image }}') );" lands="{{ card.forest }}{{ card.lake}}{{ card.mountain }}{{ card.desert }}">{{ card.faeria }}, {{ card.name }}</a></li>
+		<li class="list-group-item"><a href="javascript: addToHand( new Card('{{ card.name }}', '{{ card.image }}') );" lands="{{ card.forest }}{{ card.lake}}{{ card.mountain }}{{ card.desert }}">
+			<div>
+				<span>{{ card.name }}</span>
+				<div class="pull-right mywell"><img src='/static/maker/images/card_faeriacount.png'>{{ card.faeria }}</div>
+				{% if card.wild != "0" %}
+				<div class="pull-right mywell"><img src='/static/maker/images/icon_land_human.png'>{{ card.wild }}</div>
+				{% endif %}
+				{% if card.desert != "0" %}
+				<div class="pull-right mywell"><img src='/static/maker/images/icon_land_yellow.png'>{{ card.desert }}</div>
+				{% endif %}
+				{% if card.mountain != "0" %}
+				<div class="pull-right mywell"><img src='/static/maker/images/icon_land_red.png'>{{ card.mountain }}</div>
+				{% endif %}
+				{% if card.lake != "0" %}
+				<div class="pull-right mywell"><img src='/static/maker/images/icon_land_blue.png'>{{ card.lake }}</div>
+				{% endif %}
+				{% if card.forest != "0" %}
+				<div class="pull-right mywell"><img src='/static/maker/images/icon_land_green.png'>{{ card.forest }}</div>
+				{% endif %}
+			</div>
+		</a></li>
 	  {% endfor %}
 	</ul>
 {% endblock %}
