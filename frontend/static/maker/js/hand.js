@@ -35,12 +35,12 @@ function addToHand(card) {
 	$('.modal-footer button').click();
 	
 	img.one("load", function() {
-		document.getElementById("myCanvas").dispatchEvent(elementChanged);
+		handsize1.setText($('#img_list img').length); //+event elementChanged is dispatched
 	});
 }
 
 function removeFromHand(number) {
 	$('#cards_in_hand li[card_counter=' + number + ']').remove();
 	$('#img_list li[card_counter=' + number + ']').remove();
-	document.getElementById("myCanvas").dispatchEvent(elementChanged);
+	handsize1.setText($('#img_list img').length); //+event elementChanged is dispatched
 }
