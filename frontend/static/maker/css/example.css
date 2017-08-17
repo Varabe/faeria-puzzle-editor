@@ -3,15 +3,15 @@
     height: 500px;
     overflow-y: auto;
 }
-.card_list img{
+.card_list_item img{
 	max-width: 20px;
 	max-height: 20px;
 }
-.card_list li{
+.card_list_item {
 	padding: 0px;
 	padding-left: 5px;
 }
-.card_list span{
+.card_list_item span{
 	vertical-align: middle;
 	display: inline-block;
 	margin: 10px;
@@ -36,4 +36,5 @@
 	vertical-align: middle;
 	display: inline-block;
 	padding: 10px;
+	border: 0px;
 }
