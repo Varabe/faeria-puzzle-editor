@@ -52,8 +52,8 @@ def cropCardsOfLanguage(language):
 		path = folder_name + file_name
 		try:
 			cardimages.resize(path, do_thumbnail=True)
-		except OSError as e:
-			raise OSError(path + " is damaged. Please, download it again") from e
+		except OSError:
+			raise OSError(path + " is damaged. Please, download it again")
 
 
 def makeParser():
