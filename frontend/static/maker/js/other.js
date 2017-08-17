@@ -59,3 +59,7 @@ function cardFilter() {
         }
     }
 }
+
+$('#cardModal').on('shown.bs.modal', function() {
+	$('#card_search').focus();
+});
