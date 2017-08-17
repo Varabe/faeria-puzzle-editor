@@ -123,3 +123,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "frontend/static"),
 ]
+
+
+CARD_FOLDER = os.path.join(STATICFILES_DIRS[0], "cards/")

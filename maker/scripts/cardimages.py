@@ -1,8 +1,8 @@
 from PIL import Image
 
-
-STD_CROP_DIMENSIONS = 215, 105, 800, 1005
-STD_THUMBNAIL_SIZE = 300, 461 # Not safe to change numbers, they depend on each other
+""" Not safe to change numbers, they depend on each other """
+STD_CROP_DIMENSIONS = 208, 30, 805, 1005
+STD_THUMBNAIL_SIZE = 282, 461
 
 
 def resize(path, new_path=None, do_thumbnail=False):
@@ -16,7 +16,10 @@ def resize(path, new_path=None, do_thumbnail=False):
 
 
 def _crop(image, dims=STD_CROP_DIMENSIONS):
-	return image.crop(dims)
+	try:
+		return image.crop(dims)
+	except OSError:
+		raise OSError(image.filename + " is damaged")
 
 
 def _thumbnail(image, size=STD_THUMBNAIL_SIZE):
