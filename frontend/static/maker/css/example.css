@@ -17,10 +17,7 @@
 	margin: 10px;
 }
 
-.card_in_hand{
-	max-width: 250px;
-	height: auto;
-}
+
 .nav-pills{
 	max-height: 50px;
 	padding-bottom: 30px;
@@ -31,10 +28,45 @@
 	max-height: 20px;
 }
 .mywell{
-	background: rgba(200, 200, 200, 0.2);
+	background-color: #eee;
 	border-radius: 5px;
 	vertical-align: middle;
 	display: inline-block;
 	padding: 10px;
 	border: 0px;
+}
+.mywell:hover{
+	background-color: #ddd;
+}
+
+#img_list .overlay{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #FFFFFF;
+}
+
+#img_list .card_in_hand .overlay .btn{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+#img_list .card_in_hand{
+	position: relative;
+	max-width: 250px;
+}
+#img_list .card_in_hand img{
+	display: block;
+	width: 100%;
+	height: auto;
+}
+#img_list .card_in_hand:hover .overlay{
+	opacity: 1;
+	background: rgba(255, 255, 255, 0.5);
 }
