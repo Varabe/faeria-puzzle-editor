@@ -12,6 +12,9 @@ $(document).ready( function () {
 			this.img = this.images[state];
 			canvas.dispatchEvent(elementChanged);
 		};
+		this.draw = function (ctx) {
+			ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+		};
 	}
 	function TextElement(font, x, y, w, h) {
 		this.font = font;
@@ -29,8 +32,29 @@ $(document).ready( function () {
 		};
 		//onclick switch focus to the text field
 		this.onclick = function (event) {
-			$(this.tab).tab('show');
-			$(this.textfield).focus();
+			if ($(this.tab).parent().hasClass("active")){
+				$(this.textfield).focus();
+			} else {
+				$(this.tab).tab('show');
+				var tf = this.textfield;
+				$('#myTab').one('shown.bs.tab', function() {
+					$(tf).focus();
+				});
+			}
+		};
+		this.draw = function (ctx) {
+			ctx.font = this.font;
+			//ctx.shadowColor = "black";
+			//ctx.shadowOffsetX = 5; 
+			//ctx.shadowOffsetY = 5; 
+			//ctx.shadowBlur = 7;
+			if (typeof this.color !== 'undefined') {
+				ctx.fillStyle = this.color;
+			} else {
+				ctx.fillStyle = 'white';
+			}
+			ctx.textAlign = this.align;
+			ctx.fillText(this.text, this.x + this.width/2, this.y + this.height*2/3);
 		};
 	}
 	
@@ -44,22 +68,11 @@ $(document).ready( function () {
 	canvas.addEventListener('elementChanged', function () {
 		for (i = 0; i < elements.length; i++) {
 			var el = elements[i];
-			ctx.drawImage(el.img, el.x, el.y, el.width, el.height);
+			el.draw(ctx);
 		}
 		for (i = 0; i < textelements.length; i++) {
 			var el = textelements[i];
-			ctx.font = el.font;
-			//ctx.shadowColor = "black";
-			//ctx.shadowOffsetX = 5; 
-			//ctx.shadowOffsetY = 5; 
-			//ctx.shadowBlur = 7;
-			if (typeof el.color !== 'undefined') {
-				ctx.fillStyle = el.color;
-			} else {
-				ctx.fillStyle = 'white';
-			}
-			ctx.textAlign = el.align;
-			ctx.fillText(el.text, el.x + el.width/2, el.y + el.height*2/3);
+			el.draw(ctx);
 		}
 	});
 
@@ -92,7 +105,7 @@ $(document).ready( function () {
 	mainelem.setImage(0);
 	
 	//Power Wheel
-	var powerwheel = new ImageElement(1920-370, 1080-370, 370, 370);
+	var powerwheel = new ImageElement(1550, 710, 370, 370);
 	powerwheel.images = [document.getElementById("pw_disabled"), document.getElementById("pw_active")];
 	powerwheel.onclick = function (event) {
 		if (this.state == 0) {
@@ -104,6 +117,16 @@ $(document).ready( function () {
 	elements.push(powerwheel);
 	powerwheel.setImage(0);
 
+	//Hand
+	var hand = new ImageElement(370, 810 ,1180, 270);
+	hand.onclick = function (event) {
+		$('#myTab a[href="#hand"]').tab('show');
+	};
+	hand.draw = function (ctx) {
+		
+	};
+	elements.push(hand);
+	
 	//Your Nickname
 	var nickname1 = new TextElement("bold 18px Libre Baskerville", 85, 1017, 142, 30);
 	nickname1.color = 'white';
@@ -175,4 +198,5 @@ $(document).ready( function () {
 		decksize2.setText($('#form_decksize2').val());
 	});
 	decksize2.setText($('#form_decksize2').val());
+	
 });
