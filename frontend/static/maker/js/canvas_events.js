@@ -96,6 +96,10 @@ canvas.addEventListener('click', function(event) {
 	}
 });
 
+document.getElementById("main").onload = function() {
+	canvas.dispatchEvent(elementChanged);
+};
+
 //main background image
 var mainelem = new ImageElement(0, 0, 1920, 1080);
 mainelem.images = [document.getElementById("main")];
