@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="/static/maker/css/example.css">
 	
 </head>
@@ -101,11 +103,11 @@
 								</form>
 								<ul id="land_filter" class="nav nav-pills">
 									<li id="all" class="active"><a href="javascript: setLandFilter('all');">All</a></li>
-									<li id="neutral"><a href="javascript: setLandFilter('neutral');"><img src="/static/maker/images/icon_land_human.png"></i></a></li>
-									<li id="forest"><a href="javascript: setLandFilter('forest');"><img src="/static/maker/images/icon_land_green.png"></i></a></li>
-									<li id="lake"><a href="javascript: setLandFilter('lake');"><img src="/static/maker/images/icon_land_blue.png"></i></a></li>
-									<li id="mountain"><a href="javascript: setLandFilter('mountain');"><img src="/static/maker/images/icon_land_red.png"></i></a></li>
-									<li id="desert"><a href="javascript: setLandFilter('desert');"><img src="/static/maker/images/icon_land_yellow.png"></i></a></li>
+									<li id="neutral"><a href="javascript: setLandFilter('neutral');"><img src="/static/maker/images/icon_land_human.png" /></i></a></li>
+									<li id="forest"><a href="javascript: setLandFilter('forest');"><img src="/static/maker/images/icon_land_green.png" /></i></a></li>
+									<li id="lake"><a href="javascript: setLandFilter('lake');"><img src="/static/maker/images/icon_land_blue.png" /></i></a></li>
+									<li id="mountain"><a href="javascript: setLandFilter('mountain');"><img src="/static/maker/images/icon_land_red.png" /></i></a></li>
+									<li id="desert"><a href="javascript: setLandFilter('desert');"><img src="/static/maker/images/icon_land_yellow.png" /></i></a></li>
 								</ul>
 								<div class="card_list">
 									{% block card_list %}{% endblock %}
@@ -124,7 +126,26 @@
 			</div>
 		</div>
 		<div id="lands" class="tab-pane fade">
-			<p>Lands</p>
+			<div class = "row">
+				<div class="btn-group">
+					<button type="button" class="btn btn-default"><img src='/static/maker/images/icon_land_green_key.png' /></button>
+					<button type="button" class="btn btn-default"><img src='/static/maker/images/icon_land_blue_key.png' /></button>
+					<button type="button" class="btn btn-default"><img src='/static/maker/images/icon_land_red_key.png' /></button>
+					<button type="button" class="btn btn-default"><img src='/static/maker/images/icon_land_yellow_key.png' /></button>
+				</div>
+			</div>
+			<div class = "row">
+				<div class="btn-group">
+					<button type="button" class="btn btn-default"><img style='display: none;' src='/static/maker/images/icon_land_human_key.png' /></button>
+					<button type="button" class="btn btn-default"><img src='/static/maker/images/icon_land_human_key.png' /></button>
+				</div>
+				<div class="checkbox">
+					<label>
+						<input id='#enemytoggle' data-on='Your' data-off='Enemy' data-onstyle='success' data-offstyle='danger' data-width='75' type="checkbox" checked data-toggle="toggle">
+						<img src='/static/maker/images/keyA.png' style='max-width: 50px; max-height: 50px;'/>
+					</label>
+				</div>
+			</div>
 		</div>
 		<div id="creatures" class="tab-pane fade">
 			<p>Creatures</p>
