@@ -32,9 +32,14 @@ function addToHand(card) {
 	$('#add_button').before(elem);
 	$('#img_list').append(elem2);
 	$('.modal-footer button').click();
+	
+	img.one("load", function() {
+		document.getElementById("myCanvas").dispatchEvent(elementChanged);
+	});
 }
 
 function removeFromHand(number) {
 	$('#cards_in_hand li[card_counter=' + number + ']').remove();
 	$('#img_list li[card_counter=' + number + ']').remove();
+	document.getElementById("myCanvas").dispatchEvent(elementChanged);
 }
