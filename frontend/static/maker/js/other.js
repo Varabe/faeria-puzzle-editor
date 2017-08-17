@@ -1,5 +1,5 @@
 
-var filter_land = "all";
+var filter_land = -1;
 function setLandFilter( fil ) {
 	switch(fil){
 		case 'all':
