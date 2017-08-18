@@ -75,10 +75,32 @@ html {
 	background: rgba(255, 255, 255, 0.5);
 }
 
-#lands .btn{
+#lands .mypills li{
 	padding: 0px;
-}
-#lands .btn img{
+	margin: 0px;
+    border-style: solid;
+    border-width: 1px;
+	border-color: black;
+	border-radius: 5px;
 	max-width: 100px;
 	max-height: 100px;
+	display: inline-block;
+}
+#lands .mypills li a{
+	padding: 0px;
+	margin: 0px;
+}
+#lands .mypills li img{
+	width: 100%;
+	height: 100%;
+	max-width: 100px;
+	max-height: 100px;
+}
+#lands .mypills li:hover img{
+	opacity: 0.5;
+}
+
+#lands .mypills li.active{
+	background-color: rgb(51, 122, 183);
+	opacity: 0.8;
 }
