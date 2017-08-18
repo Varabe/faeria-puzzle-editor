@@ -159,7 +159,7 @@ $('#form_name2').on('input', function (event) {
 });
 
 //Your Faeria
-var faeria1 = new TextElement("bold 44px Libre Baskerville", 110, 891, 95, 95);
+var faeria1 = new TextElement("bold 46px Libre Baskerville", 110, 891, 95, 95);
 faeria1.color = "black";
 faeria1.strokeColor = 'white';
 faeria1.tab = '#myTab a[href="#general"]';
@@ -172,7 +172,7 @@ $('#form_faeria').on('input', function (event) {
 });
 
 //Opponent's Faeria
-var faeria2 = new TextElement("bold 44px Libre Baskerville", 103, 95, 95, 95);
+var faeria2 = new TextElement("bold 46px Libre Baskerville", 103, 95, 95, 95);
 faeria2.color = "black";
 faeria2.strokeColor = 'white';
 faeria2.tab = '#myTab a[href="#general"]';
@@ -214,3 +214,25 @@ handsize1.strokeColor = 'black';
 handsize1.onclick = function() {};
 handsize1.text = '0';
 textelements.push(handsize1);
+
+var life1 = new TextElement("bold 34px Libre Baskerville" , 993, 748, 58, 46);
+life1.color = "white";
+life1.strokeColor = "black";
+life1.tab = '#myTab a[href="#general"]';
+life1.textfield = '#form_life';
+life1.text = ($('#form_life').val());
+textelements.push(life1);
+$('#form_life').on('input', function (event) {
+	life1.setText($('#form_life').val());
+});
+
+var life2 = new TextElement("bold 34px Libre Baskerville" , 993, 70, 58, 46);
+life2.color = "white";
+life2.strokeColor = "black";
+life2.tab = '#myTab a[href="#general"]';
+life2.textfield = '#form_life2';
+life2.text = ($('#form_life2').val());
+textelements.push(life2);
+$('#form_life2').on('input', function (event) {
+	life2.setText($('#form_life2').val());
+});
