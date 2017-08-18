@@ -43,15 +43,10 @@ function TextElement(font, x, y, w, h) {
 	};
 	this.draw = function (ctx) {
 		ctx.font = this.font;
-		//ctx.shadowColor = "black";
-		//ctx.shadowOffsetX = 5; 
-		//ctx.shadowOffsetY = 5; 
-		//ctx.shadowBlur = 7;
-		if (typeof this.color !== 'undefined') {
-			ctx.fillStyle = this.color;
-		} else {
-			ctx.fillStyle = 'white';
-		}
+		ctx.strokeStyle = this.strokeColor;
+		ctx.lineWidth = 3;
+		ctx.strokeText(this.text, this.x + this.width/2, this.y + this.height*2/3);
+		ctx.fillStyle = this.color;
 		ctx.textAlign = this.align;
 		ctx.fillText(this.text, this.x + this.width/2, this.y + this.height*2/3);
 	};
@@ -140,6 +135,7 @@ elements.push(hand);
 //Your Nickname
 var nickname1 = new TextElement("bold 18px Libre Baskerville", 85, 1017, 142, 30);
 nickname1.color = 'white';
+nickname1.strokeColor = 'black';
 nickname1.tab = '#myTab a[href="#general"]';
 nickname1.textfield = '#form_name';
 nickname1.text = ($('#form_name').val());
@@ -152,6 +148,7 @@ $('#form_name').on('input', function (event) {
 //Opponent's Nickname
 var nickname2 = new TextElement("bold 18px Libre Baskerville", 76, 34, 142, 30);
 nickname2.color = 'white';
+nickname2.strokeColor = 'black';
 nickname2.tab = '#myTab a[href="#general"]';
 nickname2.textfield = '#form_name2';
 nickname2.text = ($('#form_name2').val());
@@ -164,6 +161,7 @@ $('#form_name2').on('input', function (event) {
 //Your Faeria
 var faeria1 = new TextElement("bold 44px Libre Baskerville", 110, 891, 95, 95);
 faeria1.color = "black";
+faeria1.strokeColor = 'white';
 faeria1.tab = '#myTab a[href="#general"]';
 faeria1.textfield = '#form_faeria';
 faeria1.text = ($('#form_faeria').val());
@@ -176,6 +174,7 @@ $('#form_faeria').on('input', function (event) {
 //Opponent's Faeria
 var faeria2 = new TextElement("bold 44px Libre Baskerville", 103, 95, 95, 95);
 faeria2.color = "black";
+faeria2.strokeColor = 'white';
 faeria2.tab = '#myTab a[href="#general"]';
 faeria2.textfield = '#form_faeria2';
 faeria2.text = ($('#form_faeria2').val());
@@ -187,6 +186,7 @@ $('#form_faeria2').on('input', function (event) {
 
 var decksize1 = new TextElement("bold 16px Libre Baskerville", 133, 1054, 25, 25);
 decksize1.color = "white";
+decksize1.strokeColor = 'black';
 decksize1.tab = '#myTab a[href="#general"]';
 decksize1.textfield = '#form_decksize';
 decksize1.text = ($('#form_decksize').val());
@@ -198,6 +198,7 @@ $('#form_decksize').on('input', function (event) {
 
 var decksize2 = new TextElement("bold 16px Libre Baskerville", 126, 5, 25, 25);
 decksize2.color = "white";
+decksize2.strokeColor = 'black';
 decksize2.tab = '#myTab a[href="#general"]';
 decksize2.textfield = '#form_decksize2';
 decksize2.text = ($('#form_decksize2').val());
@@ -209,6 +210,7 @@ $('#form_decksize2').on('input', function (event) {
 
 var handsize1 = new TextElement("bold 16px Libre Baskerville", 191, 1054, 20, 25);
 handsize1.color = "white";
+handsize1.strokeColor = 'black';
 handsize1.onclick = function() {};
 handsize1.text = '0';
 textelements.push(handsize1);
