@@ -89,6 +89,58 @@ canvas.addEventListener('click', function(event) {
 			break;
 		}
 	}
+	//Board
+	if (495 < x && x < 1391 && 169 < y && 766) {
+		var x0 = 546, y0 = 272,
+			dx1 = 81, dx2 = 39, dx = dx1 + dx2,
+			dy1 = 49, dy = 98,
+			nx, ny,
+			px = x - x0, py = y - y0;
+		nx = Math.floor(px/dx);
+		ny = Math.floor(py/dy1);
+		if (px < 0) {
+			nx--;
+		}
+		px = px - nx*dx;
+		py = py - ny*dy1;
+		if (Math.floor(px/dx1) != 0) { //point in triangle
+			px = px - dx1;
+			if ((ny + nx%2)% 2== 0) {
+				if (py > px * dy1/dx2) { //lower triangle
+					
+				} else { //upper triangle
+					nx++;
+				}
+			} else {
+				if (py > dy1 - px * dy1/dx2) { //lower triangle
+					nx++;
+				} else { //upper triangle
+					
+				}
+			}
+		}
+		var res, letter, number, d;
+		switch(nx) {
+			case 0: letter = "A"; d = 0; break;
+			case 1: letter = "B"; d = 0; break;
+			case 2: letter = "C"; d = 1; break;
+			case 3: letter = "D"; d = 1; break;
+			case 4: letter = "E"; d = 1; break;
+			case 5: letter = "F"; d = 0; break;
+			case 6: letter = "G"; d = 0 ;break;
+			default: letter = "Z"; break;
+		}
+		if (nx % 2 == 0) {
+			number = Math.floor(ny / 2) + 1 + d;
+		} else {
+			number = Math.floor((ny+1)/2) + 1 + d;
+		}
+		res = letter + number;
+		if (letter != "Z" && number != 0 && res != "A5" && res != "B6" && res != "C7" && res != "D7" && res != "E7" && res != "F6" && res != "G5" && res != "D1") {
+			//valid coordinates
+			alert(res);
+		}
+	}
 });
 
 document.getElementById("main").onload = function() {
