@@ -11,7 +11,6 @@ def resize(path, new_path=None, do_thumbnail=False):
 	if (image.width, image.height) != STD_THUMBNAIL_SIZE:
 		image = _crop(image)
 		if do_thumbnail: _thumbnail(image)
-		print(image.width, image.height)
 		image.save(new_path)
 	image.close()
 
