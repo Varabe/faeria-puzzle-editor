@@ -5,19 +5,23 @@ from maker.scripts import cardimages
 from faeria_puzzle.settings import CARD_FOLDER
 
 
+CROP_MODES = ["thumbnail", "circle"]
+
+
 def main():
 	card_folder = os.listdir(CARD_FOLDER)
 	for name in card_folder:
 		if name in LANGUAGES:
-			cropCardsOfLanguage(name)
+			for card in yieldCardsOfLanguage(name):
+				cardimages.editImage(card)
 
 
-def cropCardsOfLanguage(language):
+def yieldCardsOfLanguage(language):
 	folder_name = CARD_FOLDER + language + "/"
 	files = getImages(folder_name)
 	for file_name in files:
-		path = folder_name + file_name
-		cardimages.resize(path, do_thumbnail=True)
+		file_path = folder_name + file_name
+		yield file_path
 
 
 def getImages(folder_name):

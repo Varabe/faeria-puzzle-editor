@@ -1,39 +1,42 @@
 from PIL import Image
 from PIL import ImageOps
 
+MASK_PATH = "frontend/static/cards/mask.png"
 """ Not safe to change numbers, they depend on each other """
 STD_CROP_DIMENSIONS = 205, 0, 810, 1024
 STD_THUMBNAIL_SIZE = 300, 507
-CIRCLE_MASK = Image.open('mask.png').convert('L')
+STD_CIRCLE_SIZE = 512, 512
 
 
-def resize(path, new_path=None):
-	new_path = new_path or path
-	image = Image.open(path)
-	if (image.width, image.height) != STD_THUMBNAIL_SIZE:
-		image = crop(image)
-		thumbnail(image)
-		image.save(new_path)
-	image.close()
+def editImage(path, save_path=None, mode="thumbnail"):
+	save_path = save_path or path
+	with Image.open(path) as img:
+		if mode == "thumbnail":
+			if img.size != STD_THUMBNAIL_SIZE:
+				img = crop(img, STD_CROP_DIMENSIONS)
+				thumbnail(img, STD_THUMBNAIL_SIZE)
+		elif mode == "circle":
+			if img.size != STD_CIRCLE_SIZE:
+				img = cropToCircle(img)
+		img.save(save_path)
 
 
 def cropToCircle(img):
-	img = img.crop((0, 0, 1024, 900))
-	img = ImageOps.crop(img, 340)
-	img = ImageOps.fit(img, CIRCLE_MASK.size)
-	img.putalpha(CIRCLE_MASK)
-	return img
+	with Image.open(MASK_PATH) as mask:
+		mask = mask.convert('L')
+		img = crop(img, (0, 0, 1024, 900))
+		img = ImageOps.crop(img, 340)
+		img = ImageOps.fit(img, mask.size)
+		img.putalpha(mask)
+		return img
 
 
-def crop(image, dims=STD_CROP_DIMENSIONS):
+def crop(img, dimensions):
 	try:
-		return image.crop(dims)
+		return img.crop(dimensions)
 	except OSError:
-		raise OSError(image.filename + " is damaged")
+		raise OSError(img.filename + " is damaged")
 
 
-def thumbnail(image, size=STD_THUMBNAIL_SIZE):
-	image.thumbnail(size, Image.ANTIALIAS)
-
-
-cropToCircle()
+def thumbnail(img, size):
+	img.thumbnail(size, Image.ANTIALIAS)
