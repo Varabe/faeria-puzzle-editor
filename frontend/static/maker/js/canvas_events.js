@@ -43,15 +43,10 @@ function TextElement(font, x, y, w, h) {
 	};
 	this.draw = function (ctx) {
 		ctx.font = this.font;
-		//ctx.shadowColor = "black";
-		//ctx.shadowOffsetX = 5; 
-		//ctx.shadowOffsetY = 5; 
-		//ctx.shadowBlur = 7;
-		if (typeof this.color !== 'undefined') {
-			ctx.fillStyle = this.color;
-		} else {
-			ctx.fillStyle = 'white';
-		}
+		ctx.strokeStyle = this.strokeColor;
+		ctx.lineWidth = 3;
+		ctx.strokeText(this.text, this.x + this.width/2, this.y + this.height*2/3);
+		ctx.fillStyle = this.color;
 		ctx.textAlign = this.align;
 		ctx.fillText(this.text, this.x + this.width/2, this.y + this.height*2/3);
 	};
@@ -92,6 +87,58 @@ canvas.addEventListener('click', function(event) {
 		if (el.x < x &&  x < el.x+el.width && el.y < y && y < el.y + el.height) {
 			el.onclick(event);
 			break;
+		}
+	}
+	//Board
+	if (495 < x && x < 1391 && 169 < y && 766) {
+		var x0 = 546, y0 = 272,
+			dx1 = 81, dx2 = 39, dx = dx1 + dx2,
+			dy1 = 49, dy = 98,
+			nx, ny,
+			px = x - x0, py = y - y0;
+		nx = Math.floor(px/dx);
+		ny = Math.floor(py/dy1);
+		if (px < 0) {
+			nx--;
+		}
+		px = px - nx*dx;
+		py = py - ny*dy1;
+		if (Math.floor(px/dx1) != 0) { //point in triangle
+			px = px - dx1;
+			if ((ny + nx%2)% 2== 0) {
+				if (py > px * dy1/dx2) { //lower triangle
+					
+				} else { //upper triangle
+					nx++;
+				}
+			} else {
+				if (py > dy1 - px * dy1/dx2) { //lower triangle
+					nx++;
+				} else { //upper triangle
+					
+				}
+			}
+		}
+		var res, letter, number, d;
+		switch(nx) {
+			case 0: letter = "A"; d = 0; break;
+			case 1: letter = "B"; d = 0; break;
+			case 2: letter = "C"; d = 1; break;
+			case 3: letter = "D"; d = 1; break;
+			case 4: letter = "E"; d = 1; break;
+			case 5: letter = "F"; d = 0; break;
+			case 6: letter = "G"; d = 0 ;break;
+			default: letter = "Z"; break;
+		}
+		if (nx % 2 == 0) {
+			number = Math.floor(ny / 2) + 1 + d;
+		} else {
+			number = Math.floor((ny+1)/2) + 1 + d;
+		}
+		res = letter + number;
+		if (letter != "Z" && number != 0 && res != "A5" && res != "B6" && res != "C7" && res != "D7" && res != "E7" && res != "F6" && res != "G5" && res != "D1") {
+			//valid coordinates
+			alert(res);
 		}
 	}
 });
@@ -140,6 +187,7 @@ elements.push(hand);
 //Your Nickname
 var nickname1 = new TextElement("bold 18px Libre Baskerville", 85, 1017, 142, 30);
 nickname1.color = 'white';
+nickname1.strokeColor = 'black';
 nickname1.tab = '#myTab a[href="#general"]';
 nickname1.textfield = '#form_name';
 nickname1.text = ($('#form_name').val());
@@ -152,6 +200,7 @@ $('#form_name').on('input', function (event) {
 //Opponent's Nickname
 var nickname2 = new TextElement("bold 18px Libre Baskerville", 76, 34, 142, 30);
 nickname2.color = 'white';
+nickname2.strokeColor = 'black';
 nickname2.tab = '#myTab a[href="#general"]';
 nickname2.textfield = '#form_name2';
 nickname2.text = ($('#form_name2').val());
@@ -162,8 +211,9 @@ $('#form_name2').on('input', function (event) {
 });
 
 //Your Faeria
-var faeria1 = new TextElement("bold 44px Libre Baskerville", 110, 891, 95, 95);
+var faeria1 = new TextElement("bold 46px Libre Baskerville", 110, 891, 95, 95);
 faeria1.color = "black";
+faeria1.strokeColor = 'white';
 faeria1.tab = '#myTab a[href="#general"]';
 faeria1.textfield = '#form_faeria';
 faeria1.text = ($('#form_faeria').val());
@@ -174,8 +224,9 @@ $('#form_faeria').on('input', function (event) {
 });
 
 //Opponent's Faeria
-var faeria2 = new TextElement("bold 44px Libre Baskerville", 103, 95, 95, 95);
+var faeria2 = new TextElement("bold 46px Libre Baskerville", 103, 95, 95, 95);
 faeria2.color = "black";
+faeria2.strokeColor = 'white';
 faeria2.tab = '#myTab a[href="#general"]';
 faeria2.textfield = '#form_faeria2';
 faeria2.text = ($('#form_faeria2').val());
@@ -187,6 +238,7 @@ $('#form_faeria2').on('input', function (event) {
 
 var decksize1 = new TextElement("bold 16px Libre Baskerville", 133, 1054, 25, 25);
 decksize1.color = "white";
+decksize1.strokeColor = 'black';
 decksize1.tab = '#myTab a[href="#general"]';
 decksize1.textfield = '#form_decksize';
 decksize1.text = ($('#form_decksize').val());
@@ -198,6 +250,7 @@ $('#form_decksize').on('input', function (event) {
 
 var decksize2 = new TextElement("bold 16px Libre Baskerville", 126, 5, 25, 25);
 decksize2.color = "white";
+decksize2.strokeColor = 'black';
 decksize2.tab = '#myTab a[href="#general"]';
 decksize2.textfield = '#form_decksize2';
 decksize2.text = ($('#form_decksize2').val());
@@ -209,6 +262,29 @@ $('#form_decksize2').on('input', function (event) {
 
 var handsize1 = new TextElement("bold 16px Libre Baskerville", 191, 1054, 20, 25);
 handsize1.color = "white";
+handsize1.strokeColor = 'black';
 handsize1.onclick = function() {};
 handsize1.text = '0';
 textelements.push(handsize1);
+
+var life1 = new TextElement("bold 34px Libre Baskerville" , 993, 748, 58, 46);
+life1.color = "white";
+life1.strokeColor = "black";
+life1.tab = '#myTab a[href="#general"]';
+life1.textfield = '#form_life';
+life1.text = ($('#form_life').val());
+textelements.push(life1);
+$('#form_life').on('input', function (event) {
+	life1.setText($('#form_life').val());
+});
+
+var life2 = new TextElement("bold 34px Libre Baskerville" , 993, 70, 58, 46);
+life2.color = "white";
+life2.strokeColor = "black";
+life2.tab = '#myTab a[href="#general"]';
+life2.textfield = '#form_life2';
+life2.text = ($('#form_life2').val());
+textelements.push(life2);
+$('#form_life2').on('input', function (event) {
+	life2.setText($('#form_life2').val());
+});

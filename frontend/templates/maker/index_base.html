@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="/static/maker/css/example.css">
 	
 </head>
@@ -29,10 +27,16 @@
 			<p>General</p>
 				<form class="form-inline">
 					<div class="row">
-						<div class="col-sm-8">
+						<div class="col-sm-6">
 							<div class="input-group">
 								<span class="input-group-addon">Your Name:</span>
 								<input class="form-control" type="text" id="form_name" value="Mighty Yak">
+							</div>
+						</div>
+						<div class="col-sm-2">
+							<div class="input-group">
+								<span class="input-group-addon"><img height=20px width=20px src="/static/maker/images/heart.png" /></span>
+								<input class="form-control" id="form_life" value="20">
 							</div>
 						</div>
 						<div class="col-sm-2">
@@ -51,10 +55,16 @@
 				</form>
 				<form class="form-inline">
 					<div class="row">
-						<div class="col-sm-8">
+						<div class="col-sm-6">
 							<div class="input-group">
 								<span class="input-group-addon">Opponent Name:</span>
 								<input class="form-control" type="text" id="form_name2" value="Dummy Yak">
+							</div>
+						</div>
+						<div class="col-sm-2">
+							<div class="input-group">
+								<span class="input-group-addon"><img height=20px width=20px src="/static/maker/images/heart.png" /></span>
+								<input class="form-control" id="form_life2" value="20">
 							</div>
 						</div>
 						<div class="col-sm-2">
@@ -126,26 +136,19 @@
 			</div>
 		</div>
 		<div id="lands" class="tab-pane fade">
-			<div class = "row">
-				<div class="btn-group">
-					<button type="button" class="btn btn-default"><img src='/static/maker/images/icon_land_green_key.png' /></button>
-					<button type="button" class="btn btn-default"><img src='/static/maker/images/icon_land_blue_key.png' /></button>
-					<button type="button" class="btn btn-default"><img src='/static/maker/images/icon_land_red_key.png' /></button>
-					<button type="button" class="btn btn-default"><img src='/static/maker/images/icon_land_yellow_key.png' /></button>
+			<ul class="mypills">
+				<div class="row">
+					<li><a href="javascript: createLand('forest');" type="forest"><img src="/static/maker/images/icon_land_green_key.png" /></a></li>
+					<li><a href="javascript: createLand('lake');" type="lake"><img src="/static/maker/images/icon_land_blue_key.png" /></a></li>
+					<li><a href="javascript: createLand('mountain');" type="mountain"><img src="/static/maker/images/icon_land_red_key.png" /></a></li>
+					<li><a href="javascript: createLand('desert');" type="desert"><img src="/static/maker/images/icon_land_yellow_key.png" /></a></li>
 				</div>
-			</div>
-			<div class = "row">
-				<div class="btn-group">
-					<button type="button" class="btn btn-default"><img style='display: none;' src='/static/maker/images/icon_land_human_key.png' /></button>
-					<button type="button" class="btn btn-default"><img src='/static/maker/images/icon_land_human_key.png' /></button>
+				<div class="row">
+					<li><a href="javascript: switchSide()" type="switch"><img src="/static/maker/images/switch1.png" /></a></li>
+					<li><a href="javascript: createLand('prairie');" type="prairie"><img src="/static/maker/images/icon_land_human_key.png" /></a></li>
+					<li class="active"><a href="javascript: createLand('ocean');" type="ocean"><img src="/static/maker/images/icon_ocean_key.png" /></a></li>
 				</div>
-				<div class="checkbox">
-					<label>
-						<input id='#enemytoggle' data-on='Your' data-off='Enemy' data-onstyle='success' data-offstyle='danger' data-width='75' type="checkbox" checked data-toggle="toggle">
-						<img src='/static/maker/images/keyA.png' style='max-width: 50px; max-height: 50px;'/>
-					</label>
-				</div>
-			</div>
+			</ul>
 		</div>
 		<div id="creatures" class="tab-pane fade">
 			<p>Creatures</p>
@@ -156,10 +159,12 @@
     <img id="main" src="/static/maker/images/MainBoard1.png" />
 	<img id="pw_disabled" src="/static/maker/images/power_wheel_disabled.png" />
 	<img id="pw_active" src="/static/maker/images/power_wheel_active.png" />
-	
+	<img id="switch1" src="/static/maker/images/switch1.png" />
+	<img id="switch2" src="/static/maker/images/switch2.png" />
 </div>
 <script src='/static/maker/js/canvas_events.js'></script>
 <script src='/static/maker/js/other.js'></script>
 <script src='/static/maker/js/hand.js'></script>
+<script src='/static/maker/js/lands.js'></script>
 </body>
 </html>
