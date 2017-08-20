@@ -7,9 +7,9 @@ LANGUAGE_CHOICES = CARD_LANGUAGES + ["ALL"]
 
 
 def main(download_cards, languages):
-	downloadDatabase()
 	if "ALL" in languages:
 		languages = CARD_LANGUAGES
+	downloadDatabase()
 	if download_cards is True:
 		downloadCards(languages)
 
