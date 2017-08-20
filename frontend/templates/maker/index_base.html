@@ -136,19 +136,26 @@
 			</div>
 		</div>
 		<div id="lands" class="tab-pane fade">
-			<ul class="mypills">
-				<div class="row">
-					<li><a href="javascript: createLand('forest');" type="forest"><img src="/static/maker/images/icon_land_green_key.png" /></a></li>
-					<li><a href="javascript: createLand('lake');" type="lake"><img src="/static/maker/images/icon_land_blue_key.png" /></a></li>
-					<li><a href="javascript: createLand('mountain');" type="mountain"><img src="/static/maker/images/icon_land_red_key.png" /></a></li>
-					<li><a href="javascript: createLand('desert');" type="desert"><img src="/static/maker/images/icon_land_yellow_key.png" /></a></li>
+			<div class="col-sm-6">
+				<ul class="mypills">
+					<div class="row">
+						<li><a href="javascript: createLand('forest');" type="forest"><img src="/static/maker/images/icon_land_green_key.png" /></a></li>
+						<li><a href="javascript: createLand('lake');" type="lake"><img src="/static/maker/images/icon_land_blue_key.png" /></a></li>
+						<li><a href="javascript: createLand('mountain');" type="mountain"><img src="/static/maker/images/icon_land_red_key.png" /></a></li>
+						<li><a href="javascript: createLand('desert');" type="desert"><img src="/static/maker/images/icon_land_yellow_key.png" /></a></li>
+					</div>
+					<div class="row">
+						<li><a href="javascript: switchSide()" type="switch"><img src="/static/maker/images/switch1.png" /></a></li>
+						<li><a href="javascript: createLand('prairie');" type="prairie"><img src="/static/maker/images/icon_land_human_key.png" /></a></li>
+						<li class="active"><a href="javascript: createLand('ocean');" type="ocean"><img src="/static/maker/images/icon_ocean_key.png" /></a></li>
+					</div>
+				</ul>
+			</div>
+			<div class="col-sm-6">
+				<div class="land_coordinates">
+					Land №: <span>D6</span>
 				</div>
-				<div class="row">
-					<li><a href="javascript: switchSide()" type="switch"><img src="/static/maker/images/switch1.png" /></a></li>
-					<li><a href="javascript: createLand('prairie');" type="prairie"><img src="/static/maker/images/icon_land_human_key.png" /></a></li>
-					<li class="active"><a href="javascript: createLand('ocean');" type="ocean"><img src="/static/maker/images/icon_ocean_key.png" /></a></li>
-				</div>
-			</ul>
+			</div>
 		</div>
 		<div id="creatures" class="tab-pane fade">
 			<p>Creatures</p>
@@ -161,6 +168,7 @@
 	<img id="pw_active" src="/static/maker/images/power_wheel_active.png" />
 	<img id="switch1" src="/static/maker/images/switch1.png" />
 	<img id="switch2" src="/static/maker/images/switch2.png" />
+	<img id="land_lake" src="/static/maker/images/lake.png" />
 </div>
 <script src='/static/maker/js/canvas_events.js'></script>
 <script src='/static/maker/js/other.js'></script>
