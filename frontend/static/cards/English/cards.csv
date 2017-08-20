@@ -235,7 +235,7 @@
 144.name;Possessed Ursus
 144.text;Whenever this creature is dealt damage, its Attack doubles.
 149.name;Oakling
-149.text;{last_words} - A random creature in your hand gains +5/+5.
+149.text;{last_words} - A random green creature in your hand gains +5/+5.
 150.name;Thyrian Golem
 150.text;
 151.name;Seed Sower
@@ -431,7 +431,7 @@
 266.name;Shaytan Demon
 266.text;{production} - Deal 2 damage to yourself.
 267.name;Khalim's Skyguard
-267.text;{flying}\nCan be summoned anywhere adjacent to a friendly creature.
+267.text;{flying}\nCan be summoned adjacent to friendly creatures.
 268.name;Khalim's Training
 268.text;Give a creature +1/+0, {flying} and {charge|2}.
 273.name;Wind Soldier
@@ -499,7 +499,7 @@
 312.name;Icerock Behemoth
 312.text;{taunt}, {protection}
 313.name;Twinsoul Spirit
-313.text;{flying}\nCan be summoned adjacent to a friendly creature.\n{gift} - Summon another <b>Twinsoul Spirit</b>.
+313.text;{flying}\nCan be summoned adjacent to friendly creatures.\n{gift} - Summon another <b>Twinsoul Spirit</b>.
 314.name;Crackthorn Beast
 314.text;{dash|2}\n{gift} - Deal 4 damage randomly split among enemies. Give +4/+4 randomly split among allies.
 315.name;Soul Eater
@@ -616,3 +616,25 @@
 431.text;{flying}, {haste}\nWhenever this creature attacks a god, add a random <b>Treasure</b> to your hand.
 432.name;Wheel of Chaos
 432.text;{options|Destroy 2 unoccupied lands.|Destroy a creature with 5 Attack or less.|Gain 7 Life.}\n- Destroy 2 unoccupied lands.\n- Destroy a creature with 5 Attack or less.\n- Gain 7 Life.
+433.name;Ulani's Medallion
+433.text;Choose a friendly creature. All your creatures become a copy of it.
+501.name;Intrepid Explorer
+501.text;{gift} - Add an <b>Explore</b> card to each player's hand.
+502.name;Crystal Flower
+502.text;{gift} - {swallow} a creature.\n{production} - Deal 1 damage to this structure.
+503.name;Yakkapult
+503.text;{ranged_attack}\nWhenever this attacks, summon a 2/2 <b>Angry Yak</b> in a random space adjacent to the target.
+504.name;Goki, Friendly Miner
+504.text;{gift} - Add a random treasure to your ally's hand.
+505.name;Azure Skywhale
+505.text;{flying}, {charge|3}\n{gift} - {swallow} a creature.
+510.name;Gift of the Rakoa
+510.text;Give a creature +1/+1 for each creature you control.
+515.name;Rakoan Reveller
+515.text;{last_words} - Gain faeria equal to this creature's attack.
+521.name;Frog-Tosser
+521.text;{gift} - Fight an enemy creature. Summon a 2/2 <b>Frog</b> with {jump} in a random space adjacent to the target.
+530.name;Rakoan Chieftain
+530.text;{dash|1}\nGive adjacent friendly creatures +2/+0.
+532.name;Ulani, Oversky Shaman
+532.text;{gift} - Draw a green card, a blue card, a red card and a yellow card from your deck.

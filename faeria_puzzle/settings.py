@@ -124,5 +124,9 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "frontend/static"),
 ]
 
-
-CARD_FOLDER = os.path.join(STATICFILES_DIRS[0], "cards/")
+# Local settings
+CARD_DIR = os.path.join(STATICFILES_DIRS[0], "cards/")
+CARD_LANGUAGES = [
+    "ChineseSimplified", "ChineseTraditional", "Czech",
+    "English", "French", "German", "Italian", "Japanese",
+    "Korean", "Portuguese", "Russian", "Spanish"]

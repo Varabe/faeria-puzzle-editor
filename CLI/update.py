@@ -1,17 +1,14 @@
-from faeria_puzzle.settings import CARD_FOLDER
+from faeria_puzzle.settings import CARD_DIR
+from faeria_puzzle.settings import CARD_LANGUAGES
 from maker.scripts import github
 
-LANGUAGES = [
-	"ChineseSimplified", "ChineseTraditional", "Czech",
-	"English", "French", "German", "Italian", "Japanese",
-	"Korean", "Portuguese", "Russian", "Spanish"]
-LANGUAGE_CHOICES = LANGUAGES + ["ALL"]
+LANGUAGE_CHOICES = CARD_LANGUAGES + ["ALL"]
 
 
 def main(download_cards, languages):
 	downloadDatabase()
 	if "ALL" in languages:
-		languages = LANGUAGES
+		languages = CARD_LANGUAGES
 	if download_cards is True:
 		downloadCards(languages)
 
@@ -29,5 +26,5 @@ def downloadCards(languages):
 	folder_path = "CardExport"
 	for language in languages:
 		folder_name = language
-		github.downloadFolder(owner, repo, folder_path, folder_name, path=CARD_FOLDER)
+		github.downloadFolder(owner, repo, folder_path, folder_name, path=CARD_DIR)
 		print("Folder '%s' finished downloading" % language)

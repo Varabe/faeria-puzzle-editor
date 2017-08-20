@@ -8,7 +8,7 @@ def main(args=None):
 
 		main(["update", "-c", "-l", "English", "Russian"])
 		>>> Updates database and downloads English and Russian cards
-		main(["crop"])
+		main(["crop", "-m", "thumbnail", "-l", "English"])
 		>>> Crops cards by edges and makes them smaller for performance
 	"""
 	parser = makeParser()
@@ -17,7 +17,7 @@ def main(args=None):
 	if args.command == "update":
 		update.main(args.cards, args.languages)
 	elif args.command == "crop":
-		crop.main()
+		crop.main(args.languages, args.mode)
 
 
 def makeParser():
@@ -38,7 +38,12 @@ def makeUpdateParser(subparser_creator):
 
 
 def makeCropParser(subparser_creator):
-	subparser_creator.add_parser("crop", help="Crop card images")
+	parser = subparser_creator.add_parser("crop", help="Crop card images")
+	parser.add_argument("-m", "--mode",
+		choices=crop.CROP_MODES, help="Choose a cropping mode", default="thumbnail")
+	parser.add_argument("-l", "--language",
+		dest="languages", nargs="+", default=["English"],
+		help="Crop language folder(s)")
 
 
 if __name__ == "__main__":
