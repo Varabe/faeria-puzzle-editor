@@ -1,6 +1,7 @@
 from faeria_puzzle.settings import CARD_DIR
 from faeria_puzzle.settings import CARD_LANGUAGES
 from maker.scripts import github
+from maker.scripts import utils
 
 LANGUAGE_CHOICES = CARD_LANGUAGES + ["ALL"]
 
@@ -16,7 +17,7 @@ def main(download_cards, languages):
 def downloadDatabase():
 	url = "https://raw.githubusercontent.com/abrakam/Faeria_Cards/master/CardExport/merlin_shortened.csv"
 	path = "cardbase.csv"
-	github.downloadFile(url, path)
+	utils.downloadFile(url, path)
 	print("Updated database")
 
 
