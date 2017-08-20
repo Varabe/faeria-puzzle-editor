@@ -91,28 +91,25 @@ canvas.addEventListener('click', function(event) {
 	}
 	//Board
 	if (495 < x && x < 1391 && 169 < y && 766) {
-		var x0 = 546, y0 = 272,
-			dx1 = 81, dx2 = 39, dx = dx1 + dx2,
-			dy1 = 49, dy = 98,
-			nx, ny,
-			px = x - x0, py = y - y0;
-		nx = Math.floor(px/dx);
-		ny = Math.floor(py/dy1);
+		var	nx, ny,
+			px = x - LandConst.x0, py = y - LandConst.y0;
+		nx = Math.floor(px/LandConst.dx);
+		ny = Math.floor(py/LandConst.dy1);
 		if (px < 0) {
 			nx--;
 		}
-		px = px - nx*dx;
-		py = py - ny*dy1;
-		if (Math.floor(px/dx1) != 0) { //point in triangle
-			px = px - dx1;
+		px = px - nx*LandConst.dx;
+		py = py - ny*LandConst.dy1;
+		if (Math.floor(px/LandConst.dx1) != 0) { //point in triangle
+			px = px - LandConst.dx1;
 			if ((ny + nx%2)% 2== 0) {
-				if (py > px * dy1/dx2) { //lower triangle
+				if (py > px * LandConst.dy1/LandConst.dx2) { //lower triangle
 					
 				} else { //upper triangle
 					nx++;
 				}
 			} else {
-				if (py > dy1 - px * dy1/dx2) { //lower triangle
+				if (py > LandConst.dy1 - px * LandConst.dy1/LandConst.dx2) { //lower triangle
 					nx++;
 				} else { //upper triangle
 					
@@ -138,7 +135,7 @@ canvas.addEventListener('click', function(event) {
 		res = letter + number;
 		if (letter != "Z" && number != 0 && res != "A5" && res != "B6" && res != "C7" && res != "D7" && res != "E7" && res != "F6" && res != "G5" && res != "D1") {
 			//valid coordinates
-			alert(res);
+			setLandCoord(res);
 		}
 	}
 });
