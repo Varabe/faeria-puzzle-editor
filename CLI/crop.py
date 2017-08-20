@@ -1,8 +1,8 @@
 import os
 
 from faeria_puzzle.settings import CARD_DIR
-from maker.scripts import cardimages
 from maker.scripts import utils
+from maker.scripts.cards import cardimages
 
 
 CROP_MODES = ["thumbnail", "circle"]
