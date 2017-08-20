@@ -5,7 +5,7 @@ MASK_PATH = "frontend/static/cards/mask.png"
 """ Not safe to change numbers, they depend on each other """
 STD_CROP_DIMENSIONS = 205, 0, 810, 1024
 STD_THUMBNAIL_SIZE = 300, 507
-STD_CIRCLE_SIZE = 512, 512
+STD_CARD_SIZE = 1024, 1024
 
 
 def editImage(path, save_path=None, mode="thumbnail"):
@@ -16,7 +16,7 @@ def editImage(path, save_path=None, mode="thumbnail"):
 				img = crop(img, STD_CROP_DIMENSIONS)
 				thumbnail(img, STD_THUMBNAIL_SIZE)
 		elif mode == "circle":
-			if img.size != STD_CIRCLE_SIZE:
+			if img.size == STD_CARD_SIZE:
 				img = cropToCircle(img)
 		img.save(save_path)
 
