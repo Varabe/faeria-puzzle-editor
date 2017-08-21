@@ -21,6 +21,7 @@ def cropImageDir(path, save_path=None, mode="thumbnail"):
 			img_name = os.path.basename(img_path)
 			img_save_path = os.path.join(save_path, img_name)
 			cropImage(img_path, img_save_path, mode)
+			print("'%s' cropped (%s)" % (img_name, mode))
 
 
 def getImagesFromDir(directory):
