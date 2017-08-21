@@ -11,17 +11,6 @@ def getAvailibleLanguageDirs():
 	return [dir_ for dir_ in os.listdir(CARD_DIR) if dir_ in CARD_LANGUAGES]
 
 
-def getImagesFromDir(directory):
-	""" Files must have id in their names
-
-		ex: 2.png, 001.png, 234.png
-	"""
-	files = os.listdir(directory)
-	files = [file for file in files if file.endswith(".png")]
-	files.sort(key=lambda n:int(os.path.splitext(n)[0])) # file_name[0] extension[1]
-	return [os.path.join(directory, file) for file in files]
-
-
 def makedirs(path):
 	""" os.mkdirs(path, exist_ok=True) for python 2 """
 	try:
