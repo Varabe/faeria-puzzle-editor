@@ -1,5 +1,6 @@
-from CLI import crop
-from CLI import update
+from clilib import auto
+from clilib import crop
+from clilib import update
 from argparse import ArgumentParser
 
 
@@ -18,6 +19,8 @@ def main(args=None):
 		update.main(args.cards, args.languages)
 	elif args.command == "crop":
 		crop.main(args.languages, args.mode)
+	elif args.command == "auto":
+		auto.main(args.languages)
 
 
 def makeParser():
@@ -25,6 +28,7 @@ def makeParser():
 	subparser_creator = parser.add_subparsers(dest="command")
 	makeUpdateParser(subparser_creator)
 	makeCropParser(subparser_creator)
+	makeAutoParser(subparser_creator)
 	return parser
 
 
@@ -44,6 +48,15 @@ def makeCropParser(subparser_creator):
 	parser.add_argument("-l", "--language",
 		dest="languages", nargs="+", default=["English"],
 		help="Crop language folder(s)")
+
+
+def makeAutoParser(subparser_creator):
+	parser = subparser_creator.add_parser("auto",
+		help="Enters all the needed commands to update/crop cards for you (may take time!)")
+	parser.add_argument("-l", "--language",
+		dest="languages", nargs="+", default=["English"],
+		choices=update.LANGUAGE_CHOICES, metavar="",
+		help="Choose languages to download and crop")
 
 
 if __name__ == "__main__":
