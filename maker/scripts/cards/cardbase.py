@@ -1,7 +1,9 @@
+import os
+
 from csv import reader as csv_reader
 
-from maker.scripts.errors import CardbaseError
 from maker.scripts.cards.cardinfo import Card
+from maker.scripts.errors import CardbaseError
 
 
 class Cardbase:
@@ -33,6 +35,9 @@ class Cardbase:
 			return data
 
 	def _getContents(self):
-		with open(self.path) as csvfile:
-			reader = csv_reader(csvfile, delimiter=';')
-			return tuple(Card(row) for row in reader)
+		if os.path.exists(self.path):
+			with open(self.path) as csvfile:
+				reader = csv_reader(csvfile, delimiter=';')
+				return tuple(Card(row) for row in reader)
+		else:
+			raise CardbaseError("%s does not exist. Please, download it again through 'cli.py update'" % self.path)
