@@ -8,6 +8,7 @@ MASK_PATH = "frontend/static/cards/mask.png"
 """ Not safe to change numbers, they depend on each other """
 STD_CROP_DIMENSIONS = 205, 0, 810, 1024
 STD_THUMBNAIL_SIZE = 300, 507
+STD_CIRCLE_SIZE = 256, 256
 STD_CARD_SIZE = 1024, 1024
 
 
@@ -21,7 +22,6 @@ def cropImageDir(path, save_path=None, mode="thumbnail"):
 			img_name = os.path.basename(img_path)
 			img_save_path = os.path.join(save_path, img_name)
 			cropImage(img_path, img_save_path, mode)
-			print("'%s' cropped (%s)" % (img_name, mode))
 
 
 def getImagesFromDir(directory):
@@ -44,6 +44,7 @@ def cropImage(path, save_path=None, mode="thumbnail"):
 			elif mode == "circle":
 				img = cropToCircle(img)
 			img.save(save_path)
+			print("'%s' cropped (%s)" % (os.path.basename(save_path), mode))
 
 
 def cropToCircle(img):
@@ -53,6 +54,7 @@ def cropToCircle(img):
 		img = ImageOps.crop(img, 340)
 		img = ImageOps.fit(img, mask.size)
 		img.putalpha(mask)
+		img.thumbnail(STD_CIRCLE_SIZE, Image.ANTIALIAS)
 		return img
 
 
