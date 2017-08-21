@@ -1,14 +1,6 @@
+import requests
 import errno
 import os
-import requests
-
-from faeria_puzzle.settings import CARD_DIR
-from faeria_puzzle.settings import CARD_LANGUAGES
-
-
-def getAvailibleLanguageDirs():
-	""" Names of dirs (their languages) that present on machine """
-	return [dir_ for dir_ in os.listdir(CARD_DIR) if dir_ in CARD_LANGUAGES]
 
 
 def makedirs(path):
