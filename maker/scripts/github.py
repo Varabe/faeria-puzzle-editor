@@ -1,6 +1,8 @@
 import json
+import os
 import requests
 
+from PIL import Image
 from maker.scripts import utils
 
 api_url = "https://api.github.com"
@@ -30,5 +32,21 @@ def _yieldFromFolder(folder):
 def _downloadFiles(files, path):
 	for name, download_url in files:
 		file_path = "{}/{}".format(path, name)
-		utils.downloadFile(download_url, file_path)
-		print(name + " downloaded")
+		if not name.endswith(".png") or not isDownloadedAlready(file_path):
+			utils.downloadFile(download_url, file_path)
+			print("'%s' downloaded" % name)
+		else:
+			print("'%s' already exists" % name)
+
+
+def isDownloadedAlready(path):
+	isimage = path.endswith(".png")
+	if os.path.exists(path):
+		if isimage:
+			try:
+				Image.open(path).verify()
+			except:
+				return False
+	else:
+		return False
+	return True
