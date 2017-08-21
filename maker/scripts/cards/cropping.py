@@ -2,6 +2,7 @@ import os
 
 from PIL import Image
 from PIL import ImageOps
+from maker.scripts import utils
 
 MASK_PATH = "frontend/static/cards/mask.png"
 """ Not safe to change numbers, they depend on each other """
@@ -11,12 +12,15 @@ STD_CARD_SIZE = 1024, 1024
 
 
 def cropImageDir(path, save_path=None, mode="thumbnail"):
-	dir_save_path = save_path or path
+	if save_path is None:
+		save_path = path
+	else:
+		utils.makedirs(save_path)
 	if os.path.exists(path) and os.path.isdir(path):
-		for img in getImagesFromDir(path):
-			img_name = os.path.basename(img)
-			img_save_path = os.path.join(dir_save_path, img_name)
-			cropImage(path, img_save_path, mode)
+		for img_path in getImagesFromDir(path):
+			img_name = os.path.basename(img_path)
+			img_save_path = os.path.join(save_path, img_name)
+			cropImage(img_path, img_save_path, mode)
 
 
 def getImagesFromDir(directory):
