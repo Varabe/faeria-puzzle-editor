@@ -1,4 +1,4 @@
-frontend/static/cards/English/*.png
+frontend/static/cards/*/*.png
 lastfailed
 circles
 *.pyc
