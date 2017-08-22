@@ -1,12 +1,9 @@
 from maker.scripts.cards.cardbase import Cardbase
-from django.http import HttpResponse
-from django.template import loader
+from django.shortcuts import render
 
 
 def index(request):
 	cardbase = Cardbase("cardbase.csv")
 	all_cards = cardbase.getAll()
 	context = {"cards":all_cards}
-	template = loader.get_template("maker/index.html")
-	render = template.render(context, request)
-	return HttpResponse(render)
+	return render(request, "maker/index.html", context)
