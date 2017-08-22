@@ -10,7 +10,7 @@ def main(languages, mode):
 	paths = [os.path.join(CARD_DIR, l) for l in languages]
 	if mode == "circle":
 		paths = [paths[0]]
-		save_path = os.path.join(CARD_DIR, "circles")
+		save_path = os.path.join(CARD_DIR, "circle")
 	else:
 		save_path = None
 	for path in paths:
