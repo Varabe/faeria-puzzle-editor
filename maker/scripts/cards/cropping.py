@@ -69,4 +69,4 @@ def crop(img, dimensions):
 	try:
 		return img.crop(dimensions)
 	except OSError:
-		raise OSError("{name} is damaged".format(name=img.filename))
+		raise OSError("{file_name} is damaged".format(file_name=img.filename))

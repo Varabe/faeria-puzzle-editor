@@ -6,22 +6,22 @@
 		{% for card in cards %}
 		<li class="list-group-item card_list_item"><a href="javascript: addToHand( new Card('{{ card.id }}', '{{ card.image }}') );" lands="{{ card.forest }}{{ card.lake}}{{ card.mountain }}{{ card.desert }}" card_id="{{ card.id }}">
 			<div>
-				<span>{{ card.name }}</span>
-				<div class="pull-right mywell"><img src='/static/maker/images/card_faeriacount.png'>{{ card.faeria }}</div>
+				<span class="text">{{ card.name }}</span>
+				<div class="pull-right mywell"><span class="icon icon-faeria-cost">{{ card.faeria }}</span></div>
 				{% if card.wild != "0" %}
-				<div class="pull-right mywell"><img src='/static/maker/images/icon_land_human.png'>{{ card.wild }}</div>
+				<div class="pull-right mywell"><span class="icon icon-wild-req">{{ card.wild }}</span></div>
 				{% endif %}
 				{% if card.desert != "0" %}
-				<div class="pull-right mywell"><img src='/static/maker/images/icon_land_yellow.png'>{{ card.desert }}</div>
+				<div class="pull-right mywell"><span class="icon icon-desert-req">{{ card.desert }}</span></div>
 				{% endif %}
 				{% if card.mountain != "0" %}
-				<div class="pull-right mywell"><img src='/static/maker/images/icon_land_red.png'>{{ card.mountain }}</div>
+				<div class="pull-right mywell"><span class="icon icon-mountain-req">{{ card.mountain }}</span></div>
 				{% endif %}
 				{% if card.lake != "0" %}
-				<div class="pull-right mywell"><img src='/static/maker/images/icon_land_blue.png'>{{ card.lake }}</div>
+				<div class="pull-right mywell"><span class="icon icon-lake-req">{{ card.lake }}</span></div>
 				{% endif %}
 				{% if card.forest != "0" %}
-				<div class="pull-right mywell"><img src='/static/maker/images/icon_land_green.png'>{{ card.forest }}</div>
+				<div class="pull-right mywell"><span class="icon icon-forest-req">{{ card.forest }}</span></div>
 				{% endif %}
 			</div>
 		</a></li>
