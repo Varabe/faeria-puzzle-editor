@@ -1,7 +1,19 @@
+from argparse import ArgumentParser
+
 from clilib import auto
 from clilib import crop
 from clilib import update
-from argparse import ArgumentParser
+from faeria_puzzle.settings import CARD_LANGUAGES
+
+LANGUAGE_CLI_ARGS = ("-l", "--language")
+LANGUAGE_CLI_KWARGS = {
+	"dest":"languages",
+	"nargs":"+",
+	"metavar":"",
+	"default":["English"],
+	"choices":CARD_LANGUAGES + ["ALL"],
+	"help":"Take action on specific language folders, default = 'English', use 'ALL' to select all folders"
+}
 
 
 def main(args=None):
@@ -15,6 +27,8 @@ def main(args=None):
 	parser = makeParser()
 	args = [args] if args else []
 	args = parser.parse_args(*args)
+	if "ALL" in args.languages:
+		args.languages = CARD_LANGUAGES
 	if args.command == "update":
 		update.main(args.cards, args.languages)
 	elif args.command == "crop":
@@ -33,30 +47,25 @@ def makeParser():
 
 
 def makeUpdateParser(subparser_creator):
-	parser = subparser_creator.add_parser("update")
+	parser = subparser_creator.add_parser("update",
+		help="Download cardbase and card folders")
 	parser.add_argument("-c", "--cards",
 		action="store_true", help="Download card folder(s) (may take a lot of time)")
-	parser.add_argument("-l", "--language",
-		dest="languages", nargs="+", default=["English"], choices=update.LANGUAGE_CHOICES,
-		metavar="", help="Download language folder(s), default = 'English'")
+	parser.add_argument(*LANGUAGE_CLI_ARGS, **LANGUAGE_CLI_KWARGS)
 
 
 def makeCropParser(subparser_creator):
-	parser = subparser_creator.add_parser("crop", help="Crop card images")
+	parser = subparser_creator.add_parser("crop",
+		help="Crop card images")
 	parser.add_argument("-m", "--mode",
 		choices=crop.CROP_MODES, help="Choose a cropping mode", default="thumbnail")
-	parser.add_argument("-l", "--language",
-		dest="languages", nargs="+", default=["English"],
-		help="Crop language folder(s)")
+	parser.add_argument(*LANGUAGE_CLI_ARGS, **LANGUAGE_CLI_KWARGS)
 
 
 def makeAutoParser(subparser_creator):
 	parser = subparser_creator.add_parser("auto",
 		help="Enters all the needed commands to update/crop cards for you (may take time!)")
-	parser.add_argument("-l", "--language",
-		dest="languages", nargs="+", default=["English"],
-		choices=update.LANGUAGE_CHOICES, metavar="",
-		help="Choose languages to download and crop")
+	parser.add_argument(*LANGUAGE_CLI_ARGS, **LANGUAGE_CLI_KWARGS)
 
 
 if __name__ == "__main__":
