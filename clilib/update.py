@@ -1,5 +1,4 @@
 from faeria_puzzle.settings import CARD_DIR
-from faeria_puzzle.settings import CARD_LANGUAGES
 from maker.scripts import github
 from maker.scripts import utils
 
