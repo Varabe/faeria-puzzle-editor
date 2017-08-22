@@ -34,9 +34,9 @@ def _downloadFiles(files, path):
 		file_path = "{}/{}".format(path, name)
 		if not name.endswith(".png") or not isDownloadedAlready(file_path):
 			utils.downloadFile(download_url, file_path)
-			print("'%s' downloaded" % name)
+			print("'{}' downloaded".format(name))
 		else:
-			print("'%s' already exists" % name)
+			print("'{}' already exists".format(name))
 
 
 def isDownloadedAlready(path):

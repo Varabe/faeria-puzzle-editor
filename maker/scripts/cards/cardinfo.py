@@ -3,7 +3,7 @@ import os
 
 
 LAND_FIELDS = 4, 5, 6, 7, 8, 9
-IMAGE_TEMPLATE = "/static/cards/English/%s.png"
+IMAGE_TEMPLATE = "/static/cards/English/{card_id}.png"
 IMAGE_NOT_FOUND = "/static/cards/notfound.png"
 CARD_FIELDS = "id color name type wild faeria lake forest mountain desert power life text codex count_in_codex codex_id rarity image"
 Card_metaclass = namedtuple("Card", field_names=CARD_FIELDS)
@@ -21,15 +21,15 @@ def formatId(raw_card_id):
 	card_id = str(raw_card_id)
 	size = len(card_id)
 	if size == 1:
-		return "00%s" % card_id
+		return "00{}".format(card_id)
 	elif size == 2:
-		return "0%s" % card_id
+		return "0{}".format(card_id)
 	else:
 		return card_id
 
 
 def getImage(card_id):
-	django_path = IMAGE_TEMPLATE % card_id
+	django_path = IMAGE_TEMPLATE.format(card_id=card_id)
 	real_path = "frontend" + django_path
 	if not os.path.exists(real_path):
 		django_path = IMAGE_NOT_FOUND

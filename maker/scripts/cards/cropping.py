@@ -44,7 +44,8 @@ def cropImage(path, save_path=None, mode="thumbnail"):
 			elif mode == "circle":
 				img = cropToCircle(img)
 			img.save(save_path)
-			print("'%s' cropped (%s)" % (os.path.basename(save_path), mode))
+			print("'{file_name}' cropped ({mode})".format(
+				file_name=os.path.basename(save_path), mode=mode))
 
 
 def cropToCircle(img):
@@ -68,4 +69,4 @@ def crop(img, dimensions):
 	try:
 		return img.crop(dimensions)
 	except OSError:
-		raise OSError(img.filename + " is damaged")
+		raise OSError("{name} is damaged".format(name=img.filename))

@@ -28,4 +28,4 @@ def downloadCards(languages):
 	for language in languages:
 		folder_name = language
 		github.downloadFolder(owner, repo, folder_path, folder_name, path=CARD_DIR)
-		print("Folder '%s' finished downloading" % language)
+		print("Folder '{}' finished downloading".format(language))
