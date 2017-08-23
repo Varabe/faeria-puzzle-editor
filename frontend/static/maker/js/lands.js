@@ -6,11 +6,15 @@ function Land() {
 	this.side = 1;
 	this.setType = function (type) {
 		this.type = type;
+		canvas.dispatchEvent(elementChanged);
 	};
 	this.setSide = function (side) {
 		this.side = side;
+		canvas.dispatchEvent(elementChanged);
 	};
 }
+
+var LandList = ['A2', 'A3', 'B1', 'B2', 'B3', 'B4', 'B5', 'C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'D2', 'D3', 'D4', 'D5', 'D6', 'E1', 'E2', 'E3', 'E4', 'E5', 'E6', 'F1', 'F2', 'F3', 'F4', 'F5', 'G2', 'G3'];
 
 var LandArray = {
 	A2: new Land(), A3: new Land(),

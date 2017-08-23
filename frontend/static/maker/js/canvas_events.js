@@ -15,6 +15,30 @@ function ImageElement(x, y, w, h) {
 		ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
 	};
 }
+function LandCounterElement(font, lt, side, x, y, w, h) {
+	this.font = font;
+	this.x = x;
+	this.y = y;
+	this.width = w;
+	this.height = h;
+	this.land_type = lt;
+	this.side = side;
+	this.draw = function (ctx) {
+		var counter = 0, land_type = this.land_type, side = this.side;
+		LandList.forEach( function(item, i, arr) {
+			if (LandArray[item].type == land_type && LandArray[item].side == side) {
+				counter++;
+			}
+		});
+		if (counter != 0) {
+			ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+			ctx.font = this.font;
+			ctx.fillStyle = this.color;
+			ctx.align = "center";
+			ctx.fillText(counter, this.x + this.width/2, this.y + this.height-9);
+		}
+	};
+}
 function TextElement(font, x, y, w, h) {
 	this.font = font;
 	this.x = x;
@@ -285,3 +309,43 @@ textelements.push(life2);
 $('#form_life2').on('input', function (event) {
 	life2.setText($('#form_life2').val());
 });
+
+var land_forest = new LandCounterElement("bold 20px Libre Baskerville", 'forest', 1, 69, 872, 48, 55);
+land_forest.color = "#80FF76";
+land_forest.img = document.getElementById("land_counter_forest");
+elements.push(land_forest);
+
+var land_forest_enemy = new LandCounterElement("bold 20px Libre Baskerville", 'forest', 2, 61, 137, 48, 55);
+land_forest_enemy.color = "#80FF76";
+land_forest_enemy.img = document.getElementById("land_counter_forest");
+elements.push(land_forest_enemy);
+
+var land_lake = new LandCounterElement("bold 20px Libre Baskerville", 'lake', 1, 109, 836, 48, 55);
+land_lake.color = "#54F7FF";
+land_lake.img = document.getElementById("land_counter_lake");
+elements.push(land_lake);
+
+var land_lake_enemy = new LandCounterElement("bold 20px Libre Baskerville", 'lake', 2, 101, 172, 48, 55);
+land_lake_enemy.color = "#54F7FF";
+land_lake_enemy.img = document.getElementById("land_counter_lake");
+elements.push(land_lake_enemy);
+
+var land_mountain = new LandCounterElement("bold 20px Libre Baskerville", 'mountain', 1, 159, 842, 48, 49);
+land_mountain.color = "#FF613D";
+land_mountain.img = document.getElementById("land_counter_mountain");
+elements.push(land_mountain);
+
+var land_mountain_enemy = new LandCounterElement("bold 20px Libre Baskerville", 'mountain', 2, 151, 179, 48, 49);
+land_mountain_enemy.color = "#FF613D";
+land_mountain_enemy.img = document.getElementById("land_counter_mountain");
+elements.push(land_mountain_enemy);
+
+var land_desert = new LandCounterElement("bold 20px Libre Baskerville", 'desert', 1, 198, 880, 48, 47);
+land_desert.color = "#FFDE72";
+land_desert.img = document.getElementById("land_counter_desert");
+elements.push(land_desert);
+
+var land_desert_enemy = new LandCounterElement("bold 20px Libre Baskerville", 'desert', 2, 190, 146, 48, 47);
+land_desert_enemy.color = "#FFDE72";
+land_desert_enemy.img = document.getElementById("land_counter_desert");
+elements.push(land_desert_enemy);
