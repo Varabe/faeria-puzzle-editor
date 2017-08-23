@@ -115,6 +115,7 @@ canvas.addEventListener('click', function(event) {
 	}
 	//Board
 	if (495 < x && x < 1391 && 169 < y && 766) {
+		$('#myTab a[href="#lands"]').tab('show');
 		var	nx, ny,
 			px = x - LandConst.x0, py = y - LandConst.y0;
 		nx = Math.floor(px/LandConst.dx);
