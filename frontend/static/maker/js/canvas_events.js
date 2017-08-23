@@ -200,7 +200,7 @@ hand.draw = function (ctx) {
 		totalwidth = (len-1)*(reswidth-dx) + reswidth,
 		start = hand.x + hand.width/2 - totalwidth/2;
 	$('#img_list img').each(function( index ) {
-		ctx.drawImage(this, start + (reswidth-dx)*index, hand.y, reswidth, this.height*reswidth/this.width);
+		ctx.drawImage(this, start + (reswidth-dx)*index, hand.y - 50, reswidth, this.height*reswidth/this.width);
 	});
 };
 elements.push(hand);

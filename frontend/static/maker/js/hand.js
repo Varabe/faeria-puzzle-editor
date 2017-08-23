@@ -3,7 +3,7 @@ var card_counter = 0;
 function Card(id, image) {
 	this.id = id;
 	this.image = image;
-	this.name = $('.card_list_item a[card_id=' + this.id + '] span').text();
+	this.name = $('.card_list_item a[card_id=' + this.id + '] .text').text();
 }
 
 function addToHand(card) {
