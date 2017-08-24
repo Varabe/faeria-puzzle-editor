@@ -8,9 +8,9 @@ function Card(id, image) {
 
 function addToHand(card) {
 	var elem = $('<li class="list-group-item card_list_item"></li>'),
-		text = $('<span></span>').text(card.name),
+		text = $('<span class="text"></span>').text(card.name),
 		icon = $('<i class="glyphicon glyphicon-remove"></i>'),
-		button = $('<button onclick="removeFromHand(\'' + card_counter + '\')" type="button" class="btn pull-right mywell"></button>'),
+		button = $('<button onclick="removeFromHand(\'' + card_counter + '\')" type="button" class="btn pull-right remove"></button>'),
 		elem2 = $('<li class="list-inline-item"></li>'),
 		div = $('<div class="card_in_hand container"></div>'),
 		img = $('<img>'),

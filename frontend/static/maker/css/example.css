@@ -57,10 +57,6 @@ html {
     height: 500px;
     overflow-y: auto;
 }
-.card_list_item img{
-	max-width: 20px;
-	max-height: 20px;
-}
 .card_list_item {
 	padding: 0px;
 	padding-left: 5px;
@@ -71,6 +67,14 @@ html {
 	margin: 10px;
 }
 
+.remove{
+	padding: 10px;
+	border: 0px;
+	background-color: #eee;
+	border-radius: 5px;
+	vertical-align: middle;
+	display: inline-block;
+}
 
 #land_filter{
 	max-height: 50px;
