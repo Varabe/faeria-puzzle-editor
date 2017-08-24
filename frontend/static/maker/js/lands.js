@@ -1,9 +1,57 @@
 
 var landCoord = "D6";
 
+function Unit() {
+	this.type = "none"; //creature or structure
+	this.side = 1;
+	this.life = 0;
+	this.power = 0;
+	this.isjump = false;
+	this.istaunt = false;
+	this.ischarge = false;
+	this.isflying = false;
+	this.islegendary = false;
+	this.setType = function (type) {
+		this.type = type;
+		canvas.dispatchEvent(elementChanged);
+	};
+	this.setSide = function (side) {
+		this.side = side;
+		canvas.dispatchEvent(elementChanged);
+	};
+	this.setLife = function(value) {
+		this.life = value;
+		canvas.dispatchEvent(elementChanged);
+	};
+	this.setPower = function(value) {
+		this.power = value;
+		canvas.dispatchEvent(elementChanged);
+	};
+	this.setJump = function(value) {
+		this.isjump = value;
+		canvas.dispatchEvent(elementChanged);
+	};
+	this.setTaunt = function(value) {
+		this.istaunt = value;
+		canvas.dispatchEvent(elementChanged);
+	};
+	this.setCharge= function(value) {
+		this.ischarge = value;
+		canvas.dispatchEvent(elementChanged);
+	};
+	this.setFlying= function(value) {
+		this.isflying = value;
+		canvas.dispatchEvent(elementChanged);
+	};
+	this.setLegendary= function(value) {
+		this.islegendary = value;
+		canvas.dispatchEvent(elementChanged);
+	};
+}
 function Land() {
 	this.type = 'ocean';
 	this.side = 1;
+	this.unit = new Unit();
 	this.setType = function (type) {
 		this.type = type;
 		canvas.dispatchEvent(elementChanged);
