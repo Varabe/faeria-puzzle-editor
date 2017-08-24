@@ -103,18 +103,18 @@ canvas.addEventListener('click', function(event) {
 		var el = textelements[i];
 		if (el.x < x &&  x < el.x+el.width && el.y < y && y < el.y + el.height) {
 			el.onclick(event);
-			break;
+			return;
 		}
 	}
-	for (i = elements.length-1; i >= 0; i--) {
+	for (i = elements.length-1; i > 0; i--) { //not >= 0 elements[0] is the MainBoard1.png
 		var el = elements[i];
 		if (el.x < x &&  x < el.x+el.width && el.y < y && y < el.y + el.height) {
 			el.onclick(event);
-			break;
+			return;
 		}
 	}
 	//Board
-	if (495 < x && x < 1391 && 169 < y && 766) {
+	if (495 < x && x < 1391 && 169 < y && y < 766) {
 		$('#myTab a[href="#lands"]').tab('show');
 		var	nx, ny,
 			px = x - LandConst.x0, py = y - LandConst.y0;
