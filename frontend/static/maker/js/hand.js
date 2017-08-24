@@ -32,7 +32,6 @@ function addToHand(card) {
 	
 	$('#add_button').before(elem);
 	$('#img_list').append(elem2);
-	$('.modal-footer button').click();
 	
 	img.one("load", function() {
 		handsize1.setText($('#img_list img').length); //+event elementChanged is dispatched
