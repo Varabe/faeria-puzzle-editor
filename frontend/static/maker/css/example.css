@@ -90,6 +90,9 @@ html {
 	font-size: 30px;
 	font-style: bold;
 }
+#creatures div{
+	border: 3px;
+}
 
 #land_filter{
 	max-height: 50px;
