@@ -24,11 +24,16 @@ def main(args=None):
 		main(["crop", "-m", "thumbnail", "-l", "English"])
 		>>> Crops cards by edges and makes them smaller for performance
 	"""
-	parser = makeParser()
+	parser = make_main_parser()
 	args = [args] if args else []
 	args = parser.parse_args(*args)
-	if "ALL" in args.languages:
-		args.languages = CARD_LANGUAGES
+	if args.command is not None:
+		if "ALL" in args.languages:
+			args.languages = CARD_LANGUAGES
+		execute_command(args)
+
+
+def execute_command(args):
 	if args.command == "update":
 		update.main(args.cards, args.languages)
 	elif args.command == "crop":
@@ -37,16 +42,17 @@ def main(args=None):
 		auto.main(args.languages)
 
 
-def makeParser():
+def make_main_parser():
 	parser = ArgumentParser(prog="Card manager")
 	subparser_creator = parser.add_subparsers(dest="command")
-	makeUpdateParser(subparser_creator)
-	makeCropParser(subparser_creator)
-	makeAutoParser(subparser_creator)
+	subparser_creator.required = True # subparsers are required
+	make_update_parser(subparser_creator)
+	make_crop_parser(subparser_creator)
+	make_auto_parser(subparser_creator)
 	return parser
 
 
-def makeUpdateParser(subparser_creator):
+def make_update_parser(subparser_creator):
 	parser = subparser_creator.add_parser("update",
 		help="Download cardbase and card folders")
 	parser.add_argument("-c", "--cards",
@@ -54,7 +60,7 @@ def makeUpdateParser(subparser_creator):
 	parser.add_argument(*LANGUAGE_CLI_ARGS, **LANGUAGE_CLI_KWARGS)
 
 
-def makeCropParser(subparser_creator):
+def make_crop_parser(subparser_creator):
 	parser = subparser_creator.add_parser("crop",
 		help="Crop card images")
 	parser.add_argument("-m", "--mode",
@@ -62,7 +68,7 @@ def makeCropParser(subparser_creator):
 	parser.add_argument(*LANGUAGE_CLI_ARGS, **LANGUAGE_CLI_KWARGS)
 
 
-def makeAutoParser(subparser_creator):
+def make_auto_parser(subparser_creator):
 	parser = subparser_creator.add_parser("auto",
 		help="Enters all the needed commands to update/crop cards for you (may take time!)")
 	parser.add_argument(*LANGUAGE_CLI_ARGS, **LANGUAGE_CLI_KWARGS)

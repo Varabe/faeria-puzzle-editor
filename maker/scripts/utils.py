@@ -14,7 +14,7 @@ def makedirs(path):
 			raise exc
 
 
-def downloadFile(url, path):
+def download_file(url, path):
 	response = requests.get(url, stream=True)
 	with open(path, "wb") as f:
 		for chunk in response:

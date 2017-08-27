@@ -5,5 +5,5 @@ cardbase = Cardbase("cardbase.csv")
 
 
 def index(request):
-	cards = cardbase.getAll()
+	cards = cardbase.get_all()
 	return render(request, "maker/index.html", context={"cards":cards})

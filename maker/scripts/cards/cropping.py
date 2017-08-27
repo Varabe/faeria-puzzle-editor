@@ -12,19 +12,19 @@ STD_CIRCLE_SIZE = 256, 256
 STD_CARD_SIZE = 1024, 1024
 
 
-def cropImageDir(path, save_path=None, mode="thumbnail"):
+def crop_image_dir(path, save_path=None, mode="thumbnail"):
 	if save_path is None:
 		save_path = path
 	else:
 		utils.makedirs(save_path)
 	if os.path.exists(path) and os.path.isdir(path):
-		for img_path in getImagesFromDir(path):
+		for img_path in get_images_from_dir(path):
 			img_name = os.path.basename(img_path)
 			img_save_path = os.path.join(save_path, img_name)
-			cropImage(img_path, img_save_path, mode)
+			crop_image(img_path, img_save_path, mode)
 
 
-def getImagesFromDir(directory):
+def get_images_from_dir(directory):
 	""" Files must have id in their names
 
 		ex: 2.png, 001.png, 234.png
@@ -35,20 +35,20 @@ def getImagesFromDir(directory):
 	return [os.path.join(directory, file) for file in files]
 
 
-def cropImage(path, save_path=None, mode="thumbnail"):
+def crop_image(path, save_path=None, mode="thumbnail"):
 	save_path = save_path or path
 	with Image.open(path) as img:
 		if img.size == STD_CARD_SIZE:
 			if mode == "thumbnail":
-				img = cropToThumbnail(img)
+				img = crop_to_thumbnail(img)
 			elif mode == "circle":
-				img = cropToCircle(img)
+				img = crop_to_circle(img)
 			img.save(save_path)
 			print("'{file_name}' cropped ({mode})".format(
 				file_name=os.path.basename(save_path), mode=mode))
 
 
-def cropToCircle(img):
+def crop_to_circle(img):
 	with Image.open(MASK_PATH) as mask:
 		mask = mask.convert('L')
 		img = crop(img, (0, 0, 1024, 900))
@@ -59,7 +59,7 @@ def cropToCircle(img):
 		return img
 
 
-def cropToThumbnail(img):
+def crop_to_thumbnail(img):
 	img = crop(img, STD_CROP_DIMENSIONS)
 	img.thumbnail(STD_THUMBNAIL_SIZE, Image.ANTIALIAS)
 	return img

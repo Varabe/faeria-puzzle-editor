@@ -9,22 +9,22 @@ from maker.scripts.errors import CardbaseError
 class Cardbase:
 	def __init__(self, path):
 		self.path = path
-		self.contents = self._getContents()
+		self.contents = self._get_contents()
 
-	def getByField(self, field, value):
+	def get_by_field(self, field, value):
 		for card in self.contents:
 			if card.__getattribute__(field) == value:
 				return card
 		else:
 			raise CardbaseError("Field '{}' with value '{}' not found".format(field, value))
 
-	def getById(self, card_id):
-		return self.getByField("id", card_id)
+	def get_by_id(self, card_id):
+		return self.get_by_field("id", card_id)
 
-	def getByName(self, card_name):
-		return self.getByField("name", card_name)
+	def get_by_name(self, card_name):
+		return self.get_by_field("name", card_name)
 
-	def getAll(self, field=None, value=None):
+	def get_all(self, field=None, value=None):
 		data = self.contents
 		if field is not None and value is None:
 			return [card.__getattribute__(field) for card in data]
@@ -34,7 +34,7 @@ class Cardbase:
 		else:
 			return data
 
-	def _getContents(self):
+	def _get_contents(self):
 		if os.path.exists(self.path):
 			with open(self.path) as csvfile:
 				reader = csv_reader(csvfile, delimiter=';')
