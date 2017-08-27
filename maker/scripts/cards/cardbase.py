@@ -3,7 +3,7 @@ import os
 from csv import reader as csv_reader
 
 from maker.scripts.cards.cardinfo import Card
-from maker.scripts.errors import CardbaseError
+from maker.scripts.errors import BackendError
 
 
 class Cardbase:
@@ -13,7 +13,7 @@ class Cardbase:
 
 	def get_by_field(self, field, value):
 		for card in self.contents:
-			if card.__getattribute__(field) == value:
+			if card[field] == value:
 				return card
 		else:
 			raise CardbaseError("Field '{}' with value '{}' not found".format(field, value))
@@ -27,9 +27,9 @@ class Cardbase:
 	def get_all(self, field=None, value=None):
 		data = self.contents
 		if field is not None and value is None:
-			return [card.__getattribute__(field) for card in data]
+			return [card[field] for card in data]
 		elif field is not None and value is not None:
-			cards = [c for c in data if c.__getattribute__(field) == value]
+			cards = [c for c in data if c[field] == value]
 			return cards
 		else:
 			return data
@@ -42,3 +42,6 @@ class Cardbase:
 		else:
 			raise CardbaseError(
 				"{} does not exist. Please, download it again through 'cli.py update'".format(self.path))
+
+
+class CardbaseError(BackendError): pass
