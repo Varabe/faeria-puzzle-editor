@@ -255,7 +255,7 @@
 158.name;Living Willow
 158.text;{taunt}
 159.name;Wild Growth
-159.text;Create two forests at random.
+159.text;Create 1 forest at random.
 168.name;Primeval Colossus
 168.text;Costs {faeria|1} less for each special land you have (minimum cost: {faeria|6}).
 169.name;Tethra, Soul of the Wild
@@ -628,12 +628,26 @@
 504.text;{gift} - Add a random treasure to your ally's hand.
 505.name;Azure Skywhale
 505.text;{flying}, {charge|3}\n{gift} - {swallow} a creature.
+508.name;Seed of Paradise
+508.text;{flying}, {dash|1}\n{gift} - {options|When this creature harvests over the ocean, it dies and creates a lake.|When this creature harvests over the ocean, it dies and creates a forest.|When this creature harvests over the ocean, it dies and creates a mountain.|When this creature harvests over the ocean, it dies and creates a desert.}\nWhen this creature harvests over the ocean, it dies and creates a land of the chosen color.\n
 510.name;Gift of the Rakoa
 510.text;Give a creature +1/+1 for each creature you control.
+512.name;Fugoro, Merchant of Wonders
+512.text;{jump}\n{gift} - {options|Draw an <b>Urn of Gabria</b>|Draw a <b>Crystal Dragon</b>|Draw <b>Ulani's Medallion</b>}\n- Draw an <b>Urn of Gabria</b>\n- Draw a <b>Crystal Dragon</b>\n- Draw <b>Ulani's Medalion</b>
+513.name;Leaping Fugu
+513.text;{jump}\n{gift} - If you control 8 or more special lands, gain +3/+3.
 515.name;Rakoan Reveller
 515.text;{last_words} - Gain faeria equal to this creature's attack.
+519.name;Istanu, Eternal Light
+519.text;{flying}, {charge|3}\n{last_words} - A random friendly creature becomes the new <b>Istanu</b>. It can't attack this turn.
+520.name;Shifting Octopus
+520.text;{options|Gain +2/+0.|Gain +0/+2.|Gain {jump}.|Gain {taunt}.}, twice:\n- Gain +2/+0\n- Gain +0/+2\n- Gain {jump}\n- Gain {taunt}
 521.name;Frog-Tosser
 521.text;{gift} - Fight an enemy creature. Summon a 2/2 <b>Frog</b> with {jump} in a random space adjacent to the target.
+522.name;Path to Paradise
+522.text;{options|Create a forest.|Create a lake.|Create a mountain.|Create a desert.} - Create a special land.\nCreatures summoned on it this turn gain +2/+0.
+528.name;Flight of the Mantas
+528.text;When you draw this card, copy it.\nSummon a 2/2 <b>Manta</b> with {flying} and {charge|2}.
 530.name;Rakoan Chieftain
 530.text;{dash|1}\nGive adjacent friendly creatures +2/+0.
 532.name;Ulani, Oversky Shaman

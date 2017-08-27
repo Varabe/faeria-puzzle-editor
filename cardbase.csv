@@ -126,7 +126,7 @@
 156;GREEN;Oak Father;creature;;7;;2;;;6;6;{gift} - Gain +0/+1 for each forest you control.;;0;101000;COMMON
 157;GREEN;Faeria Tree;structure;;2;;1;;;;1;"{production} - This structure gains +1 Life. When it has 5 or more Life, destroy it and gain {faeria|10}.";;0;101000;EPIC
 158;GREEN;Living Willow;creature;;3;;2;;;1;7;{taunt};;0;101000;COMMON
-159;GREEN;Wild Growth;event;;2;;1;;;;;Create two forests at random.;;2;100007;RARE
+159;GREEN;Wild Growth;event;;1;;1;;;;;Create 1 forest at random.;;2;100007;RARE
 168;GREEN;Primeval Colossus;creature;;16;;2;;;7;14;Costs {faeria|1} less for each special land you have (minimum cost: {faeria|6}).;;0;101000;RARE
 169;GREEN;Tethra, Soul of the Wild;creature;;10;;2;;;6;6;"{flying}, {charge|2} {gift} - Give a creature +5/+5.";;0;101000;LEGENDARY
 170;GREEN;Wood Elemental;creature;;4;;1;;;3;4;"{taunt} {gift} - Create a forest.";;2;100008;COMMON
@@ -338,9 +338,16 @@
 503;HUMAN;Yakkapult;creature;6;3;;;;;2;5;"{ranged_attack} Whenever this attacks, summon a 2/2 <b>Angry Yak</b> in a random space adjacent to the target.";;0;102002;EPIC
 504;HUMAN;Goki, Friendly Miner;creature;4;2;;;;;2;4;{gift} - Add a random treasure to your ally's hand.;;0;102001;LEGENDARY
 505;HUMAN;Azure Skywhale;creature;8;6;;;;;6;8;"{flying}, {charge|3} {gift} - {swallow} a creature.";;0;102002;EPIC
+508;GREEN;Seed of Paradise;creature;;2;;1;;;0;2;"{flying}, {dash|1} {gift} - {options|When this creature harvests over the ocean, it dies and creates a lake.|When this creature harvests over the ocean, it dies and creates a forest.|When this creature harvests over the ocean, it dies and creates a mountain.|When this creature harvests over the ocean, it dies and creates a desert.} When this creature harvests over the ocean, it dies and creates a land of the chosen color. ";;0;102003;EPIC
 510;GREEN;Gift of the Rakoa;event;;3;;2;;;;;Give a creature +1/+1 for each creature you control.;;0;102002;EPIC
+512;BLUE;Fugoro, Merchant of Wonders;creature;3;5;3;;;;3;5;"{jump} {gift} - {options|Draw an <b>Urn of Gabria</b>|Draw a <b>Crystal Dragon</b>|Draw <b>Ulani's Medallion</b>} - Draw an <b>Urn of Gabria</b> - Draw a <b>Crystal Dragon</b> - Draw <b>Ulani's Medalion</b>";;0;102003;LEGENDARY
+513;BLUE;Leaping Fugu;creature;;3;2;;;;2;3;"{jump} {gift} - If you control 8 or more special lands, gain +3/+3.";;0;102003;COMMON
 515;RED;Rakoan Reveller;creature;;2;;;2;;1;2;{last_words} - Gain faeria equal to this creature's attack.;;0;102002;COMMON
-521;HUMAN;Frog-Tosser;creature;2;5;2;2;;;4;6;{gift} - Fight an enemy creature. Summon a 2/2 <b>Frog</b> with {jump} in a random space adjacent to the target.;;0;102002;EPIC
+519;YELLOW;Istanu, Eternal Light;creature;4;6;;;;2;6;6;"{flying}, {charge|3} {last_words} - A random friendly creature becomes the new <b>Istanu</b>. It can't attack this turn.";;0;102003;LEGENDARY
+520;HUMAN;Shifting Octopus;creature;1;4;1;1;;;3;3;"{options|Gain +2/+0.|Gain +0/+2.|Gain {jump}.|Gain {taunt}.}, twice: - Gain +2/+0 - Gain +0/+2 - Gain {jump} - Gain {taunt}";;0;102003;RARE
+521;HUMAN;Frog-Tosser;creature;2;5;2;2;;;4;4;{gift} - Fight an enemy creature. Summon a 2/2 <b>Frog</b> with {jump} in a random space adjacent to the target.;;0;102002;EPIC
+522;HUMAN;Path to Paradise;event;;2;;1;1;;;;"{options|Create a forest.|Create a lake.|Create a mountain.|Create a desert.} - Create a special land. Creatures summoned on it this turn gain +2/+0.";;0;102003;RARE
+528;HUMAN;Flight of the Mantas;event;;2;2;;;2;;;"When you draw this card, copy it. Summon a 2/2 <b>Manta</b> with {flying} and {charge|2}.";;0;102003;EPIC
 530;HUMAN;Rakoan Chieftain;creature;;4;;;2;2;2;5;"{dash|1} Give adjacent friendly creatures +2/+0.";;0;102002;RARE
 532;HUMAN;Ulani, Oversky Shaman;creature;;4;1;1;1;1;2;2;{gift} - Draw a green card, a blue card, a red card and a yellow card from your deck.;;0;102002;LEGENDARY
 555;HUMAN;Angry Yak;creature;;3;;;;;2;2;;;0;106666;COMMON
