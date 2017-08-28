@@ -39,9 +39,16 @@ function filterCreatures() {
 
 function addCard(card) {
 	if (filter_creatures == false) {
-		addToHand(card);
+		addToHand(card); //hand.js
 	} else {
-		
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				setCreature(JSON.parse(this.responseText)); //creatures.js
+				}
+		};
+		xhttp.open("GET", Urls.card(card.id), true);
+		xhttp.send(); 
 	}
 	$('.modal-footer button').click();
 }
