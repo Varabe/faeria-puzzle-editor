@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+	'django_js_reverse',
 ]
 
 MIDDLEWARE = [
@@ -130,3 +131,5 @@ CARD_LANGUAGES = [
     "ChineseSimplified", "ChineseTraditional", "Czech",
     "English", "French", "German", "Italian", "Japanese",
     "Korean", "Portuguese", "Russian", "Spanish"]
+	
+JS_REVERSE_OUTPUT_PATH = os.path.join(STATICFILES_DIRS[0], "maker/js")
